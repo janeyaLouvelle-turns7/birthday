@@ -1,3 +1,6 @@
+/* Updated Styles */
+@import url('https://fonts.googleapis.com/css2?family=Cute+Font&family=Poppins:wght@300;400;600&display=swap');
+
 body {
   margin: 0;
   padding: 0;
@@ -8,9 +11,9 @@ body {
 }
 
 .header {
-  background: rgba(255, 255, 255, 0.8);
+  background: rgba(255, 255, 255, 0.9);
   padding: 10px;
-  text-align: center;
+  box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.1);
 }
 
 .menu ul {
@@ -19,7 +22,7 @@ body {
   padding: 0;
   display: flex;
   justify-content: center;
-  gap: 15px;
+  gap: 20px;
 }
 
 .menu li {
@@ -29,34 +32,41 @@ body {
 .menu a {
   text-decoration: none;
   color: #FF69B4;
-  font-size: 16px;
+  font-size: 18px;
+  font-family: 'Cute Font', cursive;
   display: flex;
   align-items: center;
-  gap: 5px;
+  gap: 8px;
 }
 
 .menu img {
-  width: 20px;
-  height: 20px;
+  width: 24px;
+  height: 24px;
 }
 
 .section {
   padding: 20px;
-  background: rgba(255, 255, 255, 0.8);
+  background: rgba(255, 255, 255, 0.85);
   margin: 20px;
-  border-radius: 10px;
-  box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2);
+  border-radius: 15px;
+  box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.15);
+}
+
+.section h1, .section h2 {
+  font-family: 'Cute Font', cursive;
+  color: #FF69B4;
 }
 
 .countdown {
-  font-size: 24px;
+  font-size: 28px;
+  font-family: 'Cute Font', cursive;
   color: #FF69B4;
 }
 
 footer {
   text-align: center;
-  background: rgba(255, 255, 255, 0.8);
+  background: rgba(255, 255, 255, 0.9);
   padding: 10px;
-  position: sticky;
-  bottom: 0;
+  font-family: 'Poppins', sans-serif;
+  font-size: 14px;
 }
