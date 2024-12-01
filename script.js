@@ -6,8 +6,8 @@ const orange = document.querySelector('.orange');
 const pink = document.querySelector('.pink');
 
 gcfe.addEventListener('click', ()=>{
-    blue.style.opacity = '1'
-    blue.style.transform = 'rotate(0deg)'
+    green.style.opacity = '1'
+    green.style.transform = 'rotate(0deg)'
 
     pink.style.opacity = '0'
     pink.style.transform = 'rotate(-90deg)'
@@ -21,16 +21,16 @@ ocfe.addEventListener('click', ()=>{
 
     pink.style.opacity = '0'
     pink.style.transform = 'rotate(-90deg)'
-    blue.style.opacity = '0'
-    blue.style.transform = 'rotate(-90deg)'
+    green.style.opacity = '0'
+    green.style.transform = 'rotate(-90deg)'
 })
 
 pcfe.addEventListener('click', ()=>{
     pink.style.opacity = '1'
     pink.style.transform = 'rotate(0deg)'
 
-    blue.style.opacity = '0'
-    blue.style.transform = 'rotate(-90deg)'
+    green.style.opacity = '0'
+    green.style.transform = 'rotate(-90deg)'
     orange.style.opacity = '0'
     orange.style.transform = 'rotate(-90deg)'
 })
