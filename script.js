@@ -1,36 +1,26 @@
-const gcfe = document.querySelector('.gcfe');
-const ocfe = document.querySelector('.ocfe');
-const pcfe = document.querySelector('.pcfe');
-const green = document.querySelector('.green');
-const orange = document.querySelector('.orange');
-const pink = document.querySelector('.pink');
+const targetDate = new Date("2025-12-15T16:00:00").getTime();
+const countdown = document.getElementById('countdown');
 
-gcfe.addEventListener('click', ()=>{
-    green.style.opacity = '1'
-    green.style.transform = 'rotate(0deg)'
+function updateCountdown() {
+  const now = new Date().getTime();
+  const timeLeft = targetDate - now;
 
-    pink.style.opacity = '0'
-    pink.style.transform = 'rotate(-90deg)'
-    orange.style.opacity = '0'
-    orange.style.transform = 'rotate(-90deg)'
-})
+  const days = Math.floor(timeLeft / (1000 * 60 * 60 * 24));
+  const hours = Math.floor((timeLeft % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+  const minutes = Math.floor((timeLeft % (1000 * 60)) / (1000 * 60));
+  const seconds = Math.floor((timeLeft % (1000)) / 1000);
 
-ocfe.addEventListener('click', ()=>{
-    orange.style.opacity = '1'
-    orange.style.transform = 'rotate(0deg)'
+  countdown.innerHTML = `
+    <div>${days} <span>Days</span></div>
+    <div>${hours} <span>Hours</span></div>
+    <div>${minutes} <span>Minutes</span></div>
+    <div>${seconds} <span>Seconds</span></div>
+  `;
 
-    pink.style.opacity = '0'
-    pink.style.transform = 'rotate(-90deg)'
-    green.style.opacity = '0'
-    green.style.transform = 'rotate(-90deg)'
-})
+  if (timeLeft < 0) {
+    clearInterval(interval);
+    countdown.innerHTML = "🎉 The Party has Started! 🎉";
+  }
+}
 
-pcfe.addEventListener('click', ()=>{
-    pink.style.opacity = '1'
-    pink.style.transform = 'rotate(0deg)'
-
-    green.style.opacity = '0'
-    green.style.transform = 'rotate(-90deg)'
-    orange.style.opacity = '0'
-    orange.style.transform = 'rotate(-90deg)'
-})
+const interval = setInterval(updateCountdown, 1000);
