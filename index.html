@@ -3,46 +3,227 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Sanrio Party</title>
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+  <title>Sanrio Countdown Party</title>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+  <style>
+    body {
+      font-family: 'Poppins', sans-serif;
+      background-image: url('DSCF7786-Edit.jpg'); /* Ensure the correct path to the image */
+      background-size: cover;
+      background-position: center;
+      background-attachment: fixed;
+      margin: 0;
+      padding: 0;
+      color: #ffffff;
+    }
+
+    /* Header and Navigation */
+    nav {
+      position: fixed;
+      top: 0;
+      width: 100%;
+      background: rgba(255, 255, 255, 0.8);
+      padding: 10px 0;
+      text-align: center;
+      z-index: 999;
+    }
+
+    nav a {
+      color: #FF69B4;
+      margin: 0 15px;
+      font-size: 18px;
+      text-decoration: none;
+      font-weight: 600;
+    }
+
+    nav a:hover {
+      text-decoration: underline;
+    }
+
+    /* Countdown Styling */
+    .countdown-container {
+      text-align: center;
+      margin-top: 150px;
+      padding: 20px;
+      background: rgba(255, 182, 193, 0.7);
+      border-radius: 15px;
+      box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
+    }
+
+    .title {
+      font-size: 30px;
+      color: #FF69B4;
+      margin-bottom: 20px;
+      text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2);
+    }
+
+    .timer {
+      display: flex;
+      justify-content: center;
+      gap: 20px;
+      font-size: 25px;
+      color: #fff;
+    }
+
+    .time-box {
+      background: #FFD1E8;
+      padding: 10px;
+      border-radius: 10px;
+      width: 80px;
+      height: 120px;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+    }
+
+    .time-box span {
+      font-size: 14px;
+      color: #FFB6C1;
+    }
+
+    /* Section Styling */
+    .section {
+      padding: 50px 15px;
+      text-align: center;
+    }
+
+    h2 {
+      font-size: 28px;
+      color: #FF69B4;
+      margin-bottom: 20px;
+    }
+
+    .section p {
+      font-size: 18px;
+      color: #fff;
+      line-height: 1.6;
+    }
+
+    .footer {
+      background: rgba(0, 0, 0, 0.7);
+      color: #fff;
+      text-align: center;
+      padding: 10px;
+      position: fixed;
+      bottom: 0;
+      width: 100%;
+    }
+
+    /* Responsive Design */
+    @media (max-width: 768px) {
+      .timer {
+        flex-direction: column;
+        gap: 10px;
+      }
+
+      .time-box {
+        width: 60px;
+        height: 80px;
+        padding: 8px;
+      }
+
+      .title {
+        font-size: 24px;
+      }
+
+      nav a {
+        font-size: 16px;
+      }
+
+      h2 {
+        font-size: 24px;
+      }
+    }
+  </style>
 </head>
 <body>
-  <header class="header">
-    <nav class="menu">
-  <ul>
-    <li><a href="#home"><i class="fas fa-home"></i> Home</a></li>
-    <li><a href="#about"><i class="fas fa-user"></i> About Me</a></li>
-    <li><a href="#gifts"><i class="fas fa-gift"></i> Gifts</a></li>
-    <li><a href="#party-details"><i class="fas fa-birthday-cake"></i> Party Details</a></li>
-    <li><a href="#location"><i class="fas fa-map-marker-alt"></i> Location</a></li>
-  </ul>
-</nav>
-  </header>
-  <main>
-    <section id="home" class="section">
-      <h1>Welcome to My Sanrio Party!</h1>
-      <div id="countdown" class="countdown"></div>
-    </section>
-    <section id="about" class="section">
-      <h2>About Me</h2>
-      <p>Hi, I'm [Your Name]! Join me for a day filled with Sanrio fun!</p>
-    </section>
-    <section id="gifts" class="section">
-      <h2>Gifts</h2>
-      <p>Check out my gift wishlist or bring a surprise!</p>
-    </section>
-    <section id="party-details" class="section">
-      <h2>Party Details</h2>
-      <p>Date: December 15, 2025<br>Time: 4:00 PM</p>
-    </section>
-    <section id="location" class="section">
-      <h2>Location</h2>
-      <p>[Party location address]</p>
-    </section>
-  </main>
-  <footer>
+  <!-- Navigation Menu -->
+  <nav>
+    <a href="#home">Home</a>
+    <a href="#about">About Me</a>
+    <a href="#gifts">Gifts</a>
+    <a href="#party-details">Party Details</a>
+    <a href="#location">Location</a>
+  </nav>
+
+  <!-- Countdown Section -->
+  <div class="countdown-container" id="home">
+    <div class="title">🎀 Welcome to My Sanrio Party! 🎀</div>
+    <div class="timer">
+      <div class="time-box">
+        <div id="days">00</div>
+        <span>Days</span>
+      </div>
+      <div class="time-box">
+        <div id="hours">00</div>
+        <span>Hours</span>
+      </div>
+      <div class="time-box">
+        <div id="minutes">00</div>
+        <span>Minutes</span>
+      </div>
+      <div class="time-box">
+        <div id="seconds">00</div>
+        <span>Seconds</span>
+      </div>
+    </div>
+  </div>
+
+  <!-- About Section -->
+  <div class="section" id="about">
+    <h2>About Me</h2>
+    <p>Hi, I'm [Your Name]! Join me for a day filled with Sanrio fun!</p>
+  </div>
+
+  <!-- Gifts Section -->
+  <div class="section" id="gifts">
+    <h2>Gifts</h2>
+    <p>Check out my gift wishlist or bring a surprise!</p>
+  </div>
+
+  <!-- Party Details Section -->
+  <div class="section" id="party-details">
+    <h2>Party Details</h2>
+    <p>Date: December 15, 2025 <br> Time: 4:00 PM</p>
+  </div>
+
+  <!-- Location Section -->
+  <div class="section" id="location">
+    <h2>Location</h2>
+    <p>[Party location address]</p>
+  </div>
+
+  <!-- Footer -->
+  <div class="footer">
     <p>© 2025 Sanrio Party by [Your Name]</p>
-  </footer>
-  <script src="script.js"></script>
+  </div>
+
+  <script>
+    // Set the countdown date
+    const targetDate = new Date("2025-12-15T16:00:00").getTime();
+
+    function updateCountdown() {
+      const now = new Date().getTime();
+      const timeLeft = targetDate - now;
+
+      const days = Math.floor(timeLeft / (1000 * 60 * 60 * 24));
+      const hours = Math.floor((timeLeft % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+      const minutes = Math.floor((timeLeft % (1000 * 60 * 60)) / (1000 * 60));
+      const seconds = Math.floor((timeLeft % (1000 * 60)) / 1000);
+
+      document.getElementById("days").innerText = days.toString().padStart(2, '0');
+      document.getElementById("hours").innerText = hours.toString().padStart(2, '0');
+      document.getElementById("minutes").innerText = minutes.toString().padStart(2, '0');
+      document.getElementById("seconds").innerText = seconds.toString().padStart(2, '0');
+
+      if (timeLeft < 0) {
+        clearInterval(countdownInterval);
+        document.querySelector('.title').innerText = "🎉 It's Time! 🎉";
+      }
+    }
+
+    const countdownInterval = setInterval(updateCountdown, 1000);
+  </script>
 </body>
 </html>
