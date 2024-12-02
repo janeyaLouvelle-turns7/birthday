@@ -3,79 +3,94 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Sanrio Birthday Party</title>
+    <title>Janeya Louvelle Turns 7</title>
     <style>
         /* General styling */
         body {
-            font-family: "Comic Sans MS", "Chalkboard SE", sans-serif;
-            text-align: center;
-            background-color: #ffe4f4;
+            font-family: 'Comic Sans MS', sans-serif;
+            background-color: #fce4ec;
             margin: 0;
             padding: 0;
+            text-align: center;
         }
 
         h1 {
-            font-size: 2.5rem;
-            color: #ff69b4;
+            font-size: 3rem;
+            color: #ff85c1;
             margin-top: 20px;
+            text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.2);
         }
 
-        p {
-            font-size: 1.2rem;
-            color: #555;
+        h2 {
+            font-size: 2rem;
+            color: #ff69b4;
         }
 
-        /* Navbar styling */
+        /* Navigation Bar */
         .navbar {
             display: flex;
             justify-content: center;
-            background-color: #ffd1dc;
-            padding: 10px 0;
-            box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+            background-color: #ffcccb;
+            padding: 15px;
+            box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
         }
 
         .navbar a {
             text-decoration: none;
             color: white;
-            background-color: #ff69b4;
-            padding: 10px 20px;
-            margin: 5px;
+            background-color: #ff85c1;
+            padding: 12px 24px;
+            margin: 0 10px;
             border-radius: 50px;
+            font-size: 1.2rem;
             font-weight: bold;
-            font-size: 1rem;
-            transition: transform 0.2s ease, background-color 0.3s ease;
+            transition: transform 0.3s ease, background-color 0.3s ease;
         }
 
         .navbar a:hover {
-            background-color: #ff85c1;
+            background-color: #ff69b4;
             transform: scale(1.1);
         }
 
-        /* Image placeholders */
-        .placeholder {
-            width: 100%;
-            max-width: 400px;
-            margin: 20px auto;
-            border-radius: 20px;
-            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+        /* Button Style */
+        .navbar a {
+            background: linear-gradient(45deg, #ff80ab, #ff4081);
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
         }
 
+        /* Section Styling */
         .section {
-            margin: 20px 0;
+            margin: 40px 0;
+            padding: 20px;
+            border-radius: 15px;
+            background-color: #fff0f6;
+            box-shadow: 0px 5px 15px rgba(0, 0, 0, 0.1);
         }
 
-        /* Footer styling */
+        .section img {
+            max-width: 100%;
+            max-height: 300px;
+            border-radius: 15px;
+        }
+
+        /* Footer Styling */
         footer {
-            margin-top: 20px;
+            background-color: #ffcccb;
             padding: 10px 0;
-            background-color: #ffd1dc;
             color: #ff69b4;
-            font-size: 1rem;
+            font-size: 1.2rem;
+            font-weight: bold;
+        }
+
+        .footer-text {
+            color: #ff69b4;
+            text-shadow: 1px 1px 5px rgba(0, 0, 0, 0.2);
         }
     </style>
 </head>
 <body>
-    <!-- Navbar -->
+
+    <!-- Navbar with clickable buttons -->
     <div class="navbar">
         <a href="#home">Home</a>
         <a href="#wishlist">Wishlist</a>
@@ -85,46 +100,55 @@
         <a href="#contact">Contact</a>
     </div>
 
-    <!-- Content -->
+    <!-- Home Section -->
     <section id="home" class="section">
         <h1>Janeya Louvelle Turns 7!</h1>
-        <p>You're invited to celebrate a day full of Sanrio fun!</p>
-        <img src="placeholder-image-1.jpg" alt="Birthday Girl" class="placeholder">
+        <p>Join us for a magical Sanrio-themed birthday party!</p>
+        <img src="https://via.placeholder.com/400x300.png?text=Birthday+Girl" alt="Janeya Louvelle">
     </section>
 
+    <!-- Wishlist Section -->
     <section id="wishlist" class="section">
         <h2>Wishlist</h2>
-        <p>Take a look at the birthday girl's wishlist or bring a surprise gift!</p>
-        <img src="placeholder-image-2.jpg" alt="Wishlist Items" class="placeholder">
+        <p>Check out my birthday wishlist or surprise me with a gift!</p>
+        <img src="https://via.placeholder.com/400x300.png?text=Wishlist+Items" alt="Wishlist">
     </section>
 
+    <!-- Location Section -->
     <section id="location" class="section">
         <h2>Location</h2>
-        <p>The party will be held at [Venue Address].</p>
-        <img src="placeholder-image-3.jpg" alt="Party Location" class="placeholder">
+        <p>The party will take place at the following address:</p>
+        <p><strong>123 Party St, Funland, 12345</strong></p>
+        <img src="https://via.placeholder.com/400x300.png?text=Party+Location" alt="Location">
     </section>
 
+    <!-- What to Expect Section -->
     <section id="expectations" class="section">
         <h2>What to Expect</h2>
-        <p>Exciting games, yummy treats, and lots of Sanrio-themed fun!</p>
-        <img src="placeholder-image-4.jpg" alt="Party Activities" class="placeholder">
+        <p>Exciting games, delicious treats, and all things Sanrio! Come ready for fun!</p>
+        <img src="https://via.placeholder.com/400x300.png?text=Party+Fun" alt="Fun Activities">
     </section>
 
+    <!-- Seat Number Section -->
     <section id="seat-number" class="section">
         <h2>Seat Number</h2>
-        <p>Your assigned seat will be [Seat Number].</p>
-        <img src="placeholder-image-5.jpg" alt="Seating Arrangement" class="placeholder">
+        <p>Your seat number will be assigned upon arrival.</p>
+        <img src="https://via.placeholder.com/400x300.png?text=Seating+Arrangement" alt="Seat Arrangement">
     </section>
 
+    <!-- Contact Section -->
     <section id="contact" class="section">
         <h2>Contact</h2>
-        <p>Have questions? Reach out to us at [Phone Number] or [Email Address].</p>
-        <img src="placeholder-image-6.jpg" alt="Contact Information" class="placeholder">
+        <p>If you have any questions, feel free to reach out:</p>
+        <p>Email: <strong>party@janeyabirthday.com</strong></p>
+        <p>Phone: <strong>(123) 456-7890</strong></p>
+        <img src="https://via.placeholder.com/400x300.png?text=Contact+Us" alt="Contact">
     </section>
 
     <!-- Footer -->
     <footer>
-        © 2025 Janeya's Sanrio Party | Designed with love!
+        <p class="footer-text">© 2025 Janeya's Sanrio Party. All rights reserved!</p>
     </footer>
+
 </body>
 </html>
