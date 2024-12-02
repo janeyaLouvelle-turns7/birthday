@@ -12,22 +12,76 @@
             font-family: 'Poppins', sans-serif;
             background: url('chipbag3.png') no-repeat center center fixed;
             background-size: cover;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            height: 100vh;
-            color: #555;
+            overflow: hidden; /* To hide floating balloons outside the screen */
         }
 
-        /* Responsive Container */
+        /* Floating Balloons */
+        .balloon {
+            position: absolute;
+            bottom: -150px;
+            width: 50px;
+            height: 70px;
+            background: radial-gradient(circle, #ff80c0 60%, #ffb3da);
+            border-radius: 50%;
+            animation: floatUp 10s infinite ease-in-out;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        }
+
+        .balloon::before {
+            content: '';
+            position: absolute;
+            bottom: -10px;
+            left: 50%;
+            width: 2px;
+            height: 60px;
+            background: #ff80c0;
+            transform: translateX(-50%);
+        }
+
+        @keyframes floatUp {
+            0% {
+                transform: translateX(0) translateY(0);
+                opacity: 1;
+            }
+            50% {
+                transform: translateX(20px) translateY(-50%);
+            }
+            100% {
+                transform: translateX(-20px) translateY(-100vh);
+                opacity: 0;
+            }
+        }
+
+        /* Lights (Glowing Dots) */
+        .light {
+            position: absolute;
+            width: 10px;
+            height: 10px;
+            background: rgba(255, 255, 255, 0.8);
+            border-radius: 50%;
+            animation: twinkle 3s infinite ease-in-out;
+        }
+
+        @keyframes twinkle {
+            0%, 100% {
+                opacity: 0.5;
+            }
+            50% {
+                opacity: 1;
+            }
+        }
+
+        /* Container Styles */
         .landing-container {
             text-align: center;
-            width: 90%; /* Full-width for smaller screens */
-            max-width: 600px; /* Limit for larger screens */
+            width: 90%;
+            max-width: 600px;
             padding: 20px;
             background: rgba(255, 255, 255, 0.9);
             border-radius: 20px;
             box-shadow: 0px 4px 15px rgba(0, 0, 0, 0.1);
+            z-index: 10; /* Place above balloons and lights */
+            position: relative;
         }
 
         .eya-img {
@@ -84,65 +138,24 @@
             font-weight: bold;
             color: #ff80c0;
         }
-
-        /* Media Queries for Responsiveness */
-        @media (max-width: 768px) {
-            .landing-container {
-                width: 95%; /* Adjust for tablets and smaller screens */
-                padding: 15px;
-            }
-
-            .eya-img {
-                width: 150px;
-            }
-
-            .title {
-                font-size: 1.8em;
-            }
-
-            .tagline {
-                font-size: 0.9em;
-            }
-
-            .enter-button {
-                font-size: 1em;
-                padding: 8px 18px;
-            }
-
-            .timer {
-                font-size: 1em;
-            }
-        }
-
-        @media (max-width: 480px) {
-            .landing-container {
-                width: 95%;
-                padding: 10px;
-            }
-            .eya-img {
-                width: 120px;
-            }
-
-            .title {
-                font-size: 1.5em;
-            }
-
-            .tagline {
-                font-size: 0.8em;
-            }
-
-            .enter-button {
-                font-size: 0.9em;
-                padding: 6px 15px;
-            }
-
-            .timer {
-                font-size: 0.9em;
-            }
-        }
     </style>
 </head>
 <body>
+    <!-- Background Balloons -->
+    <div class="balloon" style="left: 10%; animation-delay: 0s;"></div>
+    <div class="balloon" style="left: 30%; animation-delay: 2s;"></div>
+    <div class="balloon" style="left: 50%; animation-delay: 4s;"></div>
+    <div class="balloon" style="left: 70%; animation-delay: 1s;"></div>
+    <div class="balloon" style="left: 90%; animation-delay: 3s;"></div>
+
+    <!-- Lights -->
+    <div class="light" style="top: 20%; left: 15%; animation-delay: 0s;"></div>
+    <div class="light" style="top: 30%; left: 50%; animation-delay: 2s;"></div>
+    <div class="light" style="top: 50%; left: 70%; animation-delay: 1s;"></div>
+    <div class="light" style="top: 70%; left: 30%; animation-delay: 3s;"></div>
+    <div class="light" style="top: 80%; left: 60%; animation-delay: 4s;"></div>
+
+    <!-- Main Container -->
     <div class="landing-container">
         <!-- Image with Transparent Background -->
         <img src="eya.png" alt="Eya" class="eya-img">
@@ -150,7 +163,6 @@
         <!-- Title and Tagline -->
         <h1 class="title">Welcome to Janeya Louvelle's 7th Birthday Party!</h1>
         <p class="tagline">✨ Join us for a magical celebration filled with fun surprises and cuteness! ✨</p>
-
 
         <!-- Cute Enter Button -->
         <button class="enter-button" onclick="window.location.href='party-page.html'">Enter the Party</button>
@@ -162,8 +174,14 @@
         </div>
     </div>
 
+    <!-- Happy Birthday Music -->
+    <audio autoplay loop>
+        <source src="happy-birthday.mp3" type="audio/mpeg">
+        Your browser does not support the audio element.
+    </audio>
+
     <script>
-        // Set the date of the birthday party
+        // Countdown Timer Script
         const countdownDate = new Date("Dec 15, 2024 15:00:00").getTime();
 
         const timer = setInterval(() => {
