@@ -1,72 +1,59 @@
-/* Updated Styles */
-@import url('https://fonts.googleapis.com/css2?family=Cute+Font&family=Poppins:wght@300;400;600&display=swap');
-
 body {
-  margin: 0;
-  padding: 0;
-  font-family: 'Poppins', sans-serif;
-  background: url('img/DSCF7786-Edit.jpg') no-repeat center center fixed;
-  background-size: cover;
-  color: #444;
+    margin: 0;
+    font-family: 'Poppins', sans-serif;
+    background: url('background-image.jpg') no-repeat center center fixed;
+    background-size: cover;
+    color: #333;
+}
+
+.container {
+    text-align: center;
+    padding: 20px;
 }
 
 .header {
-  background: rgba(255, 255, 255, 0.9);
-  padding: 10px;
-  box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.1);
+    position: relative;
+    margin: 0 auto;
 }
 
-.menu ul {
-  list-style: none;
-  margin: 0;
-  padding: 0;
-  display: flex;
-  justify-content: center;
-  gap: 20px;
+.hero-image {
+    width: 100%;
+    border-radius: 20px;
 }
 
-.menu li {
-  display: inline-block;
+.text-overlay {
+    position: absolute;
+    top: 20%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    color: white;
+    font-family: 'Cherry Bomb One', cursive;
+    text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.5);
 }
 
-.menu a {
-  text-decoration: none;
-  color: #FF69B4;
-  font-size: 18px;
-  font-family: 'Cute Font', cursive;
-  display: flex;
-  align-items: center;
-  gap: 8px;
+h1 {
+    font-size: 3em;
+    margin: 0;
 }
 
-.menu img {
-  width: 24px;
-  height: 24px;
+p {
+    font-size: 1.5em;
 }
 
-.section {
-  padding: 20px;
-  background: rgba(255, 255, 255, 0.85);
-  margin: 20px;
-  border-radius: 15px;
-  box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.15);
+.details {
+    margin-top: 20px;
+    padding: 15px;
+    background: rgba(255, 255, 255, 0.9);
+    border-radius: 10px;
+    display: inline-block;
 }
 
-.section h1, .section h2 {
-  font-family: 'Cute Font', cursive;
-  color: #FF69B4;
-}
+@media (max-width: 768px) {
+    .hero-image {
+        height: auto;
+    }
 
-.countdown {
-  font-size: 28px;
-  font-family: 'Cute Font', cursive;
-  color: #FF69B4;
-}
-
-footer {
-  text-align: center;
-  background: rgba(255, 255, 255, 0.9);
-  padding: 10px;
-  font-family: 'Poppins', sans-serif;
-  font-size: 14px;
+    .text-overlay h1 {
+        font-size: 2em;
+    }
 }
