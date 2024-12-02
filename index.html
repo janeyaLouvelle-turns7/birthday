@@ -5,13 +5,14 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Janeya Louvelle Turns 7</title>
     <style>
-        /* General styling */
+        /* General Styling */
         body {
             font-family: 'Comic Sans MS', sans-serif;
             background-color: #fce4ec;
             margin: 0;
             padding: 0;
             display: flex;
+            min-height: 100vh;
         }
 
         h1 {
@@ -26,20 +27,18 @@
             color: #ff69b4;
         }
 
-        /* Sidebar */
+        /* Sidebar Styles */
         .sidebar {
             height: 100%;
             width: 250px;
             background-color: #ffcccb;
             position: fixed;
             top: 0;
-            left: 0;
+            left: -250px; /* Initially hidden */
             padding-top: 20px;
             box-shadow: 3px 0px 15px rgba(0, 0, 0, 0.1);
-            display: flex;
-            flex-direction: column;
-            justify-content: space-between;
-            transition: transform 0.3s ease;
+            transition: left 0.3s ease;
+            z-index: 1000;
         }
 
         .sidebar a {
@@ -59,27 +58,7 @@
             transform: scale(1.1);
         }
 
-        /* Dropdown styling */
-        .dropdown {
-            position: relative;
-            display: inline-block;
-        }
-
-        .dropdown-content {
-            display: none;
-            position: absolute;
-            background-color: #ff85c1;
-            min-width: 160px;
-            box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
-            z-index: 1;
-            border-radius: 10px;
-        }
-
-        .dropdown:hover .dropdown-content {
-            display: block;
-        }
-
-        .dropdown-content a {
+        .sidebar .dropdown-content a {
             color: white;
             padding: 12px 16px;
             text-decoration: none;
@@ -87,15 +66,35 @@
             border-radius: 10px;
         }
 
-        .dropdown-content a:hover {
+        .sidebar .dropdown-content a:hover {
             background-color: #ff69b4;
         }
 
-        /* Content area */
+        /* Hamburger Menu */
+        .burger-menu {
+            display: none;
+            flex-direction: column;
+            cursor: pointer;
+            position: absolute;
+            top: 20px;
+            left: 20px;
+            z-index: 1100;
+        }
+
+        .burger-menu div {
+            width: 30px;
+            height: 4px;
+            background-color: #ff85c1;
+            margin: 5px 0;
+            border-radius: 5px;
+        }
+
+        /* Content */
         .content {
             margin-left: 250px;
             padding: 20px;
             width: 100%;
+            transition: margin-left 0.3s ease;
         }
 
         .section img {
@@ -126,7 +125,6 @@
             margin-bottom: 10px;
         }
 
-        /* Footer Styling */
         footer {
             background-color: #ffcccb;
             padding: 10px 0;
@@ -135,50 +133,43 @@
             font-weight: bold;
         }
 
-        /* Hamburger Menu */
-        .burger-menu {
-            display: none;
-            flex-direction: column;
-            cursor: pointer;
-            position: absolute;
-            top: 20px;
-            left: 20px;
-        }
-
-        .burger-menu div {
-            width: 25px;
-            height: 3px;
-            background-color: #ff85c1;
-            margin: 5px 0;
-            border-radius: 5px;
-        }
-
-        /* Mobile Styles */
+        /* Responsive Styles */
         @media (max-width: 768px) {
+            /* Sidebar Styles for Mobile */
             .sidebar {
-                width: 0;
-                padding-top: 60px;
-                transition: transform 0.3s ease;
-            }
-
-            .sidebar a {
-                padding: 15px;
-                font-size: 1.5rem;
+                left: -250px; /* Hidden initially */
             }
 
             .sidebar.open {
-                width: 250px;
+                left: 0; /* Show sidebar */
             }
 
+            /* Content Adjustments */
             .content {
                 margin-left: 0;
             }
 
+            /* Burger Menu */
             .burger-menu {
                 display: flex;
             }
-        }
 
+            .sidebar a {
+                font-size: 1.5rem;
+                padding: 15px;
+            }
+
+            .burger-menu div {
+                width: 30px;
+                height: 4px;
+                background-color: #ff85c1;
+                margin: 6px 0;
+            }
+
+            .sidebar.open + .content {
+                margin-left: 0; /* Content moves under the sidebar */
+            }
+        }
     </style>
 </head>
 <body>
