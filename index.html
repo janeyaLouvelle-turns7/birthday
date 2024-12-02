@@ -26,6 +26,15 @@
             color: #ff69b4;
         }
 
+        /* Countdown Styling */
+        .countdown {
+            font-size: 2rem;
+            font-weight: bold;
+            color: #ff4081;
+            margin-top: 20px;
+            text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.2);
+        }
+
         /* Navigation Bar */
         .navbar {
             display: flex;
@@ -105,6 +114,7 @@
         <h1>Janeya Louvelle Turns 7!</h1>
         <p>Join us for a magical Sanrio-themed birthday party!</p>
         <img src="https://via.placeholder.com/400x300.png?text=Birthday+Girl" alt="Janeya Louvelle">
+        <div id="countdown" class="countdown"></div> <!-- Countdown Timer -->
     </section>
 
     <!-- Wishlist Section -->
@@ -149,6 +159,38 @@
     <footer>
         <p class="footer-text">© 2025 Janeya's Sanrio Party. All rights reserved!</p>
     </footer>
+
+    <!-- Countdown Script -->
+    <script>
+        // Set the date and time for the countdown
+        var countDownDate = new Date("Dec 15, 2024 16:00:00").getTime();
+
+        // Update the countdown every 1 second
+        var x = setInterval(function() {
+
+            // Get the current date and time
+            var now = new Date().getTime();
+
+            // Calculate the difference between now and the countdown date
+            var distance = countDownDate - now;
+
+            // Time calculations
+            var days = Math.floor(distance / (1000 * 60 * 60 * 24));
+            var hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+            var minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+            var seconds = Math.floor((distance % (1000 * 60)) / 1000);
+
+            // Display the result in the element with id="countdown"
+            document.getElementById("countdown").innerHTML = days + "d " + hours + "h "
+            + minutes + "m " + seconds + "s ";
+
+            // If the countdown is finished, write some text
+            if (distance < 0) {
+                clearInterval(x);
+                document.getElementById("countdown").innerHTML = "Party Time!";
+            }
+        }, 1000);
+    </script>
 
 </body>
 </html>
