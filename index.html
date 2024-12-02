@@ -38,7 +38,7 @@
         /* Navigation Bar */
         .navbar {
             display: flex;
-            justify-content: center;
+            justify-content: space-between;
             background-color: #ffcccb;
             padding: 15px;
             box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
@@ -94,6 +94,21 @@
             background-color: #ff69b4;
         }
 
+        /* Mobile Burger Menu */
+        .burger-menu {
+            display: none;
+            flex-direction: column;
+            cursor: pointer;
+        }
+
+        .burger-menu div {
+            width: 25px;
+            height: 3px;
+            background-color: #ff85c1;
+            margin: 5px 0;
+            border-radius: 5px;
+        }
+
         /* Section Styling */
         .section {
             margin: 40px 0;
@@ -145,24 +160,73 @@
             color: #ff69b4;
             text-shadow: 1px 1px 5px rgba(0, 0, 0, 0.2);
         }
+
+        /* Responsive design */
+        @media (max-width: 768px) {
+            .navbar {
+                flex-direction: column;
+                align-items: center;
+            }
+
+            .navbar a {
+                margin: 10px 0;
+            }
+
+            .dropdown-content {
+                position: relative;
+                display: flex;
+                flex-direction: column;
+            }
+
+            .navbar {
+                display: flex;
+                justify-content: space-between;
+            }
+
+            .burger-menu {
+                display: flex;
+            }
+
+            .navbar-links {
+                display: none;
+                width: 100%;
+                text-align: center;
+            }
+
+            .navbar-links a {
+                display: block;
+                margin: 10px 0;
+            }
+
+            .navbar.active .navbar-links {
+                display: flex;
+            }
+        }
     </style>
 </head>
 <body>
 
-    <!-- Navbar with clickable buttons -->
+    <!-- Navbar with clickable buttons and mobile burger menu -->
     <div class="navbar">
-        <a href="#home">Home</a>
-        <div class="dropdown">
-            <a href="#">Wishlist</a>
-            <div class="dropdown-content">
-                <a href="#wishlist">Wishlist Items</a>
-                <a href="#dresses">7 Dresses</a>
-            </div>
+        <div class="burger-menu" onclick="toggleMenu()">
+            <div></div>
+            <div></div>
+            <div></div>
         </div>
-        <a href="#location">Location</a>
-        <a href="#expectations">What to Expect</a>
-        <a href="#seat-number">Seat Number</a>
-        <a href="#contact">Contact</a>
+        <div class="navbar-links">
+            <a href="#home">Home</a>
+            <div class="dropdown">
+                <a href="#">Wishlist</a>
+                <div class="dropdown-content">
+                    <a href="wishlist.html">Wishlist Items</a>
+                    <a href="dresses.html">7 Dresses</a>
+                </div>
+            </div>
+            <a href="location.html">Location</a>
+            <a href="expectations.html">What to Expect</a>
+            <a href="seat-number.html">Seat Number</a>
+            <a href="contact.html">Contact</a>
+        </div>
     </div>
 
     <!-- Home Section -->
@@ -215,36 +279,7 @@
         </div>
     </section>
 
-    <!-- Location Section -->
-    <section id="location" class="section">
-        <h2>Location</h2>
-        <p>The party will take place at the following address:</p>
-        <p><strong>123 Party St, Funland, 12345</strong></p>
-        <img src="https://via.placeholder.com/400x300.png?text=Party+Location" alt="Location">
-    </section>
-
-    <!-- What to Expect Section -->
-    <section id="expectations" class="section">
-        <h2>What to Expect</h2>
-        <p>Exciting games, delicious treats, and all things Sanrio! Come ready for fun!</p>
-        <img src="https://via.placeholder.com/400x300.png?text=Party+Fun" alt="Fun Activities">
-    </section>
-
-    <!-- Seat Number Section -->
-    <section id="seat-number" class="section">
-        <h2>Seat Number</h2>
-        <p>Your seat number will be assigned upon arrival.</p>
-        <img src="https://via.placeholder.com/400x300.png?text=Seating+Arrangement" alt="Seat Arrangement">
-    </section>
-
-    <!-- Contact Section -->
-    <section id="contact" class="section">
-        <h2>Contact</h2>
-        <p>If you have any questions, feel free to reach out:</p>
-        <p>Email: <strong>party@janeyabirthday.com</strong></p>
-        <p>Phone: <strong>(123) 456-7890</strong></p>
-        <img src="https://via.placeholder.com/400x300.png?text=Contact+Us" alt="Contact">
-    </section>
+    <!-- Other Sections... -->
 
     <footer>
         <p class="footer-text">Looking forward to celebrating with you!</p>
@@ -270,6 +305,13 @@
                 document.getElementById("countdown").innerHTML = "Party Time!";
             }
         }, 1000);
+
+        // Toggle Menu for Mobile
+        function toggleMenu() {
+            var navbar = document.querySelector('.navbar');
+            navbar.classList.toggle('active');
+        }
     </script>
+
 </body>
 </html>
