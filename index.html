@@ -12,18 +12,22 @@
             font-family: 'Poppins', sans-serif;
             background: url('chipbag3.png') no-repeat center center fixed;
             background-size: cover;
-            overflow: hidden; /* To hide floating balloons outside the screen */
+            overflow: hidden; /* Hide overflowing balloons and lights */
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
         }
 
         /* Floating Balloons */
         .balloon {
             position: absolute;
             bottom: -150px;
-            width: 50px;
-            height: 70px;
+            width: 60px;
+            height: 90px;
             background: radial-gradient(circle, #ff80c0 60%, #ffb3da);
             border-radius: 50%;
-            animation: floatUp 10s infinite ease-in-out;
+            animation: floatUp 8s infinite ease-in-out;
             box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
         }
 
@@ -33,7 +37,7 @@
             bottom: -10px;
             left: 50%;
             width: 2px;
-            height: 60px;
+            height: 80px;
             background: #ff80c0;
             transform: translateX(-50%);
         }
@@ -52,11 +56,11 @@
             }
         }
 
-        /* Lights (Glowing Dots) */
+        /* Glowing Lights */
         .light {
             position: absolute;
-            width: 10px;
-            height: 10px;
+            width: 15px;
+            height: 15px;
             background: rgba(255, 255, 255, 0.8);
             border-radius: 50%;
             animation: twinkle 3s infinite ease-in-out;
@@ -71,17 +75,17 @@
             }
         }
 
-        /* Container Styles */
+        /* Landing Container */
         .landing-container {
+            position: relative;
             text-align: center;
             width: 90%;
             max-width: 600px;
-            padding: 20px;
+            padding: 30px;
             background: rgba(255, 255, 255, 0.9);
             border-radius: 20px;
-            box-shadow: 0px 4px 15px rgba(0, 0, 0, 0.1);
+            box-shadow: 0px 4px 15px rgba(0, 0, 0, 0.2);
             z-index: 10; /* Place above balloons and lights */
-            position: relative;
         }
 
         .eya-img {
@@ -94,18 +98,18 @@
         /* Title and Tagline */
         .title {
             font-family: 'Cookie', cursive;
-            font-size: 2em;
+            font-size: 2.5em;
             color: #ff80c0;
             margin: 20px 0;
         }
 
         .tagline {
-            font-size: 1em;
+            font-size: 1.2em;
             color: #666;
             margin: 20px 0;
         }
 
-        /* Cute Button */
+        /* Cute Enter Button */
         .enter-button {
             background: linear-gradient(to bottom, #ffe6f7, #ffb3da);
             color: #ff80c0;
