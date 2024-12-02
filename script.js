@@ -1,26 +1,18 @@
-const targetDate = new Date("2024-12-15T16:00:00").getTime();
-const countdown = document.getElementById('countdown');
+const countdownDate = new Date("Dec 15, 2024 00:00:00").getTime();
 
-function updateCountdown() {
-  const now = new Date().getTime();
-  const timeLeft = targetDate - now;
+const timer = setInterval(function() {
+    const now = new Date().getTime();
+    const distance = countdownDate - now;
 
-  const days = Math.floor(timeLeft / (1000 * 60 * 60 * 24));
-  const hours = Math.floor((timeLeft % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
-  const minutes = Math.floor((timeLeft % (1000 * 60)) / (1000 * 60));
-  const seconds = Math.floor((timeLeft % (1000)) / 1000);
+    const days = Math.floor(distance / (1000 * 60 * 60 * 24));
+    const hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+    const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+    const seconds = Math.floor((distance % (1000 * 60)) / 1000);
 
-  countdown.innerHTML = `
-    <div>${days} <span>Days</span></div>
-    <div>${hours} <span>Hours</span></div>
-    <div>${minutes} <span>Minutes</span></div>
-    <div>${seconds} <span>Seconds</span></div>
-  `;
+    document.getElementById("timer").innerHTML = days + "d " + hours + "h " + minutes + "m " + seconds + "s ";
 
-  if (timeLeft < 0) {
-    clearInterval(interval);
-    countdown.innerHTML = "🎉 The Party has Started! 🎉";
-  }
-}
-
-const interval = setInterval(updateCountdown, 1000);
+    if (distance < 0) {
+        clearInterval(timer);
+        document.getElementById("timer").innerHTML = "The party has started!";
+    }
+}, 1000);
