@@ -10,8 +10,8 @@
         body {
             margin: 0;
             font-family: 'Poppins', sans-serif;
-            background: url('chipbag3.png') no-repeat center center fixed; /* Add background image */
-            background-size: cover; /* Ensure the image covers the entire screen */
+            background: url('chipbag3.png') no-repeat center center fixed;
+            background-size: cover;
             display: flex;
             justify-content: center;
             align-items: center;
@@ -19,16 +19,18 @@
             color: #555;
         }
 
+        /* Container */
         .landing-container {
             text-align: center;
             max-width: 600px;
             padding: 20px;
-            background: rgba(255, 255, 255, 0.9); /* Slightly transparent white background */
+            background: rgba(255, 255, 255, 0.9);
             border-radius: 20px;
             box-shadow: 0px 4px 15px rgba(0, 0, 0, 0.1);
             position: relative;
         }
 
+        /* Title and Tagline */
         .title {
             font-family: 'Cookie', cursive;
             font-size: 2.5em;
@@ -42,28 +44,43 @@
             margin: 20px 0;
         }
 
+        /* Images */
         .cinnamonroll-img {
             width: 200px;
-            margin-top: -40px;
+            margin-top: -20px;
         }
 
-        .enter-button {
-            background-color: #ffebf8;
-            color: #ff80c0;
-            border: 2px solid #ff80c0;
-            font-size: 1.2em;
-            padding: 15px 25px;
+        .era-img {
+            width: 250px;
+            margin: 20px 0;
             border-radius: 12px;
+            box-shadow: 0px 4px 15px rgba(0, 0, 0, 0.1);
+        }
+
+        /* Cute Button */
+        .enter-button {
+            background: linear-gradient(to bottom, #ffe6f7, #ffb3da);
+            color: #ff80c0;
+            font-size: 1.3em;
+            padding: 15px 30px;
+            border: 3px solid #ff80c0;
+            border-radius: 30px;
             cursor: pointer;
             margin-top: 20px;
             transition: all 0.3s ease;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+            font-family: 'Cookie', cursive;
+            text-shadow: 1px 1px 2px #fff;
         }
 
         .enter-button:hover {
-            background-color: #ff80c0;
+            background: #ff80c0;
             color: white;
+            border-color: #ffe6f7;
+            box-shadow: 0 6px 12px rgba(0, 0, 0, 0.3);
         }
 
+        /* Countdown Section */
         .countdown {
             margin-top: 30px;
         }
@@ -77,11 +94,20 @@
 </head>
 <body>
     <div class="landing-container">
-        <img src="hhttps://imgur.com/G12EJp0" alt="Cinnamonroll" class="cinnamonroll-img">
+        <!-- Cinnamonroll Image -->
+        <img src="https://i.imgur.com/kxVoJYI.png" alt="Cinnamonroll" class="cinnamonroll-img">
+
+        <!-- Title and Tagline -->
         <h1 class="title">Welcome to Janeya Louvelle's 7th Birthday Party!</h1>
         <p class="tagline">✨ Join us for a magical celebration filled with fun surprises and cuteness! ✨</p>
+
+        <!-- New Image -->
+        <img src="eya.png" alt="eya" class="eya-img">
+
+        <!-- Cute Enter Button -->
         <button class="enter-button" onclick="window.location.href='party-page.html'">Enter the Party</button>
 
+        <!-- Countdown Section -->
         <div class="countdown">
             <p>Countdown to the big day:</p>
             <div id="timer" class="timer">Loading...</div>
