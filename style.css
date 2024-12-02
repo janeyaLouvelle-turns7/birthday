@@ -1,112 +1,83 @@
-/* Base styles */
-* {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-}
-
+/* General Styles */
 body {
-    font-family: Arial, sans-serif;
-    background-color: #f9f9f9;
-    color: #444;
+    margin: 0;
+    font-family: 'Poppins', sans-serif;
+    background: linear-gradient(to bottom, #f9f7fd, #ffebf8);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    color: #555;
 }
 
-h1, h2 {
-    color: #ff80c0;
-}
-
-h2 {
-    margin-top: 20px;
-}
-
-.section {
-    padding: 20px;
-    margin: 20px 0;
-    background-color: #fff;
-    border-radius: 8px;
-    box-shadow: 0 4px 8px rgba(0,0,0,0.1);
-}
-
-.navbar {
-    background-color: #f1c6d3;
-    padding: 15px 0;
+/* Landing Page Container */
+.landing-container {
     text-align: center;
+    max-width: 600px;
+    padding: 20px;
+    background: #ffffff;
+    border-radius: 20px;
+    box-shadow: 0px 4px 15px rgba(0, 0, 0, 0.1);
+    position: relative;
 }
 
-.navbar ul {
-    list-style-type: none;
-    padding: 0;
-}
-
-.navbar li {
-    display: inline-block;
-    margin: 0 15px;
-}
-
-.navbar a {
-    text-decoration: none;
+/* Title and Tagline */
+.title {
+    font-family: 'Cookie', cursive;
+    font-size: 2.5em;
     color: #ff80c0;
+    margin: 20px 0;
+}
+
+.tagline {
     font-size: 1.2em;
-    padding: 10px 20px;
-    border-radius: 8px;
-    transition: background-color 0.3s ease;
+    color: #666;
+    margin: 20px 0;
 }
 
-.navbar a:hover {
-    background-color: #ff80c0;
-    color: white;
+/* Cinnamonroll Image */
+.cinnamonroll-img {
+    width: 200px;
+    margin-top: -40px;
 }
 
-/* Button Styling */
-.nav-link {
-    background-color: #fff;
-    border: 2px solid #ff80c0;
-    padding: 12px 20px;
-    font-size: 1.1em;
+/* Enter Button */
+.enter-button {
+    background-color: #ffebf8;
     color: #ff80c0;
-    border-radius: 8px;
+    border: 2px solid #ff80c0;
+    font-size: 1.2em;
+    padding: 15px 25px;
+    border-radius: 12px;
+    cursor: pointer;
+    margin-top: 20px;
     transition: all 0.3s ease;
 }
 
-.nav-link:hover {
+.enter-button:hover {
     background-color: #ff80c0;
     color: white;
-    border: 2px solid #fff;
 }
 
-/* Mobile responsiveness */
+/* Countdown Section */
+.countdown {
+    margin-top: 30px;
+}
+
+.timer {
+    font-size: 1.5em;
+    font-weight: bold;
+    color: #ff80c0;
+}
+
+/* Responsive Design */
 @media (max-width: 768px) {
-    .navbar li {
-        display: block;
-        margin: 10px 0;
+    .title {
+        font-size: 2em;
     }
 
-    .navbar a {
-        font-size: 1.1em;
-        padding: 15px;
-    }
-
-    .section {
-        margin: 10px 0;
-        padding: 15px;
-    }
-
-    .content {
-        padding: 10px;
-    }
-}
-
-@media (max-width: 480px) {
-    .navbar a {
+    .enter-button {
         font-size: 1em;
-        padding: 12px;
-    }
-
-    .section {
-        padding: 10px;
-    }
-
-    .content {
-        padding: 5px;
+        padding: 12px 20px;
     }
 }
