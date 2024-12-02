@@ -3,41 +3,128 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Sanrio Birthday Invitation</title>
-    <link rel="stylesheet" href="style.css">
-    <link href="https://fonts.googleapis.com/css2?family=Cherry+Bomb+One&family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+    <title>Sanrio Birthday Party</title>
+    <style>
+        /* General styling */
+        body {
+            font-family: "Comic Sans MS", "Chalkboard SE", sans-serif;
+            text-align: center;
+            background-color: #ffe4f4;
+            margin: 0;
+            padding: 0;
+        }
+
+        h1 {
+            font-size: 2.5rem;
+            color: #ff69b4;
+            margin-top: 20px;
+        }
+
+        p {
+            font-size: 1.2rem;
+            color: #555;
+        }
+
+        /* Navbar styling */
+        .navbar {
+            display: flex;
+            justify-content: center;
+            background-color: #ffd1dc;
+            padding: 10px 0;
+            box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+        }
+
+        .navbar a {
+            text-decoration: none;
+            color: white;
+            background-color: #ff69b4;
+            padding: 10px 20px;
+            margin: 5px;
+            border-radius: 50px;
+            font-weight: bold;
+            font-size: 1rem;
+            transition: transform 0.2s ease, background-color 0.3s ease;
+        }
+
+        .navbar a:hover {
+            background-color: #ff85c1;
+            transform: scale(1.1);
+        }
+
+        /* Image placeholders */
+        .placeholder {
+            width: 100%;
+            max-width: 400px;
+            margin: 20px auto;
+            border-radius: 20px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+        }
+
+        .section {
+            margin: 20px 0;
+        }
+
+        /* Footer styling */
+        footer {
+            margin-top: 20px;
+            padding: 10px 0;
+            background-color: #ffd1dc;
+            color: #ff69b4;
+            font-size: 1rem;
+        }
+    </style>
 </head>
 <body>
-    <div class="container">
-        <div class="header">
-            <img src="hero-image.jpg" alt="Birthday Girl" class="hero-image">
-            <div class="text-overlay">
-                <h1>Janeya Louvelle Turns 7</h1>
-                <p>You're Invited!</p>
-            </div>
-        </div>
-        <div class="details">
-            <h2>Party Details</h2>
-            <p>📅 Date: December 15, 2025</p>
-            <p>🕒 Time: 4:00 PM</p>
-            <p>📍 Location: [Party Address]</p>
-            <p id="countdown"></p>
-        </div>
+    <!-- Navbar -->
+    <div class="navbar">
+        <a href="#home">Home</a>
+        <a href="#wishlist">Wishlist</a>
+        <a href="#location">Location</a>
+        <a href="#expectations">What to Expect</a>
+        <a href="#seat-number">Seat Number</a>
+        <a href="#contact">Contact</a>
     </div>
-    <script>
-        function updateCountdown() {
-            const eventDate = new Date('December 15, 2025 16:00:00').getTime();
-            const now = new Date().getTime();
-            const timeLeft = eventDate - now;
 
-            const days = Math.floor(timeLeft / (1000 * 60 * 60 * 24));
-            const hours = Math.floor((timeLeft % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
-            const minutes = Math.floor((timeLeft % (1000 * 60 * 60)) / (1000 * 60));
-            const seconds = Math.floor((timeLeft % (1000 * 60)) / 1000);
+    <!-- Content -->
+    <section id="home" class="section">
+        <h1>Janeya Louvelle Turns 7!</h1>
+        <p>You're invited to celebrate a day full of Sanrio fun!</p>
+        <img src="placeholder-image-1.jpg" alt="Birthday Girl" class="placeholder">
+    </section>
 
-            document.getElementById('countdown').innerText = `🎉 ${days}d ${hours}h ${minutes}m ${seconds}s`;
-        }
-        setInterval(updateCountdown, 1000);
-    </script>
+    <section id="wishlist" class="section">
+        <h2>Wishlist</h2>
+        <p>Take a look at the birthday girl's wishlist or bring a surprise gift!</p>
+        <img src="placeholder-image-2.jpg" alt="Wishlist Items" class="placeholder">
+    </section>
+
+    <section id="location" class="section">
+        <h2>Location</h2>
+        <p>The party will be held at [Venue Address].</p>
+        <img src="placeholder-image-3.jpg" alt="Party Location" class="placeholder">
+    </section>
+
+    <section id="expectations" class="section">
+        <h2>What to Expect</h2>
+        <p>Exciting games, yummy treats, and lots of Sanrio-themed fun!</p>
+        <img src="placeholder-image-4.jpg" alt="Party Activities" class="placeholder">
+    </section>
+
+    <section id="seat-number" class="section">
+        <h2>Seat Number</h2>
+        <p>Your assigned seat will be [Seat Number].</p>
+        <img src="placeholder-image-5.jpg" alt="Seating Arrangement" class="placeholder">
+    </section>
+
+    <section id="contact" class="section">
+        <h2>Contact</h2>
+        <p>Have questions? Reach out to us at [Phone Number] or [Email Address].</p>
+        <img src="placeholder-image-6.jpg" alt="Contact Information" class="placeholder">
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        © 2025 Janeya's Sanrio Party | Designed with love!
+    </footer>
 </body>
 </html>
