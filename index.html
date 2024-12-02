@@ -13,6 +13,7 @@
             background-color: #fce4ec;
             display: flex;
             min-height: 100vh;
+            overflow-x: hidden;
         }
 
         h1, h2 {
@@ -20,6 +21,47 @@
             color: #ff85c1;
             text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.2);
             margin: 20px;
+        }
+
+        /* Landing Page Styles */
+        .landing-page {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            background: linear-gradient(to bottom, #ff85c1, #fce4ec);
+            text-align: center;
+        }
+
+        .landing-page h1 {
+            font-size: 3rem;
+            color: #ffffff;
+            margin-bottom: 20px;
+            font-weight: bold;
+        }
+
+        .landing-page p {
+            font-size: 1.5rem;
+            color: #ffcccb;
+            margin-bottom: 30px;
+        }
+
+        .landing-button {
+            padding: 15px 30px;
+            background-color: #ff85c1;
+            border: none;
+            border-radius: 50px;
+            color: white;
+            font-size: 1.5rem;
+            font-weight: bold;
+            cursor: pointer;
+            transition: background-color 0.3s ease, transform 0.3s ease;
+        }
+
+        .landing-button:hover {
+            background-color: #ff69b4;
+            transform: scale(1.1);
         }
 
         /* Sidebar Styles */
@@ -80,34 +122,6 @@
             transition: margin-left 0.3s ease;
         }
 
-        .section img {
-            max-width: 100%;
-            max-height: 300px;
-            border-radius: 15px;
-        }
-
-        .dress-section {
-            display: grid;
-            grid-template-columns: repeat(3, 1fr);
-            gap: 20px;
-            text-align: center;
-            margin-top: 30px;
-        }
-
-        .dress-item {
-            background-color: #ffcccb;
-            padding: 10px;
-            border-radius: 10px;
-            box-shadow: 0 3px 10px rgba(0, 0, 0, 0.1);
-        }
-
-        .dress-item img {
-            width: 100px;
-            height: 100px;
-            border-radius: 50%;
-            margin-bottom: 10px;
-        }
-
         footer {
             background-color: #ffcccb;
             padding: 10px 0;
@@ -156,16 +170,6 @@
                 margin-left: 0; /* Content moves under the sidebar */
             }
 
-            .dress-section {
-                grid-template-columns: 1fr 1fr; /* Two columns on mobile */
-                gap: 10px;
-            }
-
-            /* Countdown Font Size on Mobile */
-            #countdown {
-                font-size: 1.5rem;
-            }
-
             /* Resize images on mobile */
             .section img {
                 max-height: 250px;
@@ -195,20 +199,21 @@
 </head>
 <body>
 
+    <!-- Landing Page -->
+    <div class="landing-page" id="landingPage">
+        <h1>Welcome to Janeya Louvelle's 7th Birthday Party!</h1>
+        <p>Join us for a magical celebration filled with fun, surprises, and cuteness!</p>
+        <button class="landing-button" onclick="enterSite()">Enter the Party!</button>
+    </div>
+
     <!-- Sidebar -->
     <div class="sidebar" id="sidebar">
         <a href="#home">Home</a>
-        <div class="dropdown">
-            <a href="#">Wishlist</a>
-            <div class="dropdown-content">
-                <a href="wishlist.html">Wishlist Items</a>
-                <a href="dresses.html">7 Dresses</a>
-            </div>
-        </div>
-        <a href="location.html">Location</a>
-        <a href="expectations.html">What to Expect</a>
-        <a href="seat-number.html">Seat Number</a>
-        <a href="contact.html">Contact</a>
+        <a href="#wishlist">Wishlist</a>
+        <a href="#location">Location</a>
+        <a href="#expectations">What to Expect</a>
+        <a href="#seat-number">Seat Number</a>
+        <a href="#contact">Contact</a>
     </div>
 
     <!-- Burger Menu for Mobile -->
@@ -219,61 +224,19 @@
     </div>
 
     <!-- Content -->
-    <div class="content">
-        <!-- Home Section -->
+    <div class="content" id="mainContent">
+        <!-- Main Content Goes Here -->
         <section id="home" class="section">
             <h1>Janeya Louvelle Turns 7!</h1>
             <p>Join us for a magical Sanrio-themed birthday party!</p>
-            <img src="https://via.placeholder.com/400x300.png?text=Birthday+Girl" alt="Janeya Louvelle">
-            <div id="countdown" class="countdown"></div> <!-- Countdown Timer -->
+            <div id="countdown" class="countdown"></div>
         </section>
-
-        <!-- Wishlist Section -->
-        <section id="wishlist" class="section">
-            <h2>Wishlist</h2>
-            <p>Check out my birthday wishlist or surprise me with a gift!</p>
-            <img src="https://via.placeholder.com/400x300.png?text=Wishlist+Items" alt="Wishlist">
-        </section>
-
-        <!-- 7 Dresses Section -->
-        <section id="dresses" class="section">
-            <h2>7 Dresses</h2>
-            <div class="dress-section">
-                <div class="dress-item">
-                    <img src="https://via.placeholder.com/100" alt="Arno">
-                    <p>Arno</p>
-                </div>
-                <div class="dress-item">
-                    <img src="https://via.placeholder.com/100" alt="Emma">
-                    <p>Emma</p>
-                </div>
-                <div class="dress-item">
-                    <img src="https://via.placeholder.com/100" alt="Giana">
-                    <p>Giana</p>
-                </div>
-                <div class="dress-item">
-                    <img src="https://via.placeholder.com/100" alt="Jaylie">
-                    <p>Jaylie</p>
-                </div>
-                <div class="dress-item">
-                    <img src="https://via.placeholder.com/100" alt="Eriz">
-                    <p>Eriz</p>
-                </div>
-                <div class="dress-item">
-                    <img src="https://via.placeholder.com/100" alt="Dite">
-                    <p>Dite</p>
-                </div>
-                <div class="dress-item">
-                    <img src="https://via.placeholder.com/100" alt="Avisha">
-                    <p>Avisha</p>
-                </div>
-            </div>
-        </section>
-
-        <footer>
-            <p class="footer-text">Looking forward to celebrating with you!</p>
-        </footer>
+        <!-- Other sections like Wishlist, 7 Dresses, etc. -->
     </div>
+
+    <footer>
+        <p class="footer-text">Looking forward to celebrating with you!</p>
+    </footer>
 
     <script>
         // Countdown Timer script
@@ -300,6 +263,13 @@
             var sidebar = document.getElementById("sidebar");
             sidebar.classList.toggle("open");
         }
+
+        // Hide Landing Page and Show Main Content
+        function enterSite() {
+            document.getElementById("landingPage").style.display = "none";
+            document.getElementById("mainContent").style.display = "block";
+        }
     </script>
+
 </body>
 </html>
