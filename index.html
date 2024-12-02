@@ -11,7 +11,7 @@
             background-color: #fce4ec;
             margin: 0;
             padding: 0;
-            text-align: center;
+            display: flex;
         }
 
         h1 {
@@ -26,38 +26,35 @@
             color: #ff69b4;
         }
 
-        /* Countdown Styling */
-        .countdown {
-            font-size: 2rem;
-            font-weight: bold;
-            color: #ff4081;
-            margin-top: 20px;
-            text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.2);
-        }
-
-        /* Navigation Bar */
-        .navbar {
-            display: flex;
-            justify-content: space-between;
+        /* Sidebar */
+        .sidebar {
+            height: 100%;
+            width: 250px;
             background-color: #ffcccb;
-            padding: 15px;
-            box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
-            position: relative;
+            position: fixed;
+            top: 0;
+            left: 0;
+            padding-top: 20px;
+            box-shadow: 3px 0px 15px rgba(0, 0, 0, 0.1);
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            transition: transform 0.3s ease;
         }
 
-        .navbar a {
+        .sidebar a {
             text-decoration: none;
             color: white;
             background-color: #ff85c1;
             padding: 12px 24px;
-            margin: 0 10px;
+            margin: 10px;
             border-radius: 50px;
             font-size: 1.2rem;
             font-weight: bold;
             transition: transform 0.3s ease, background-color 0.3s ease;
         }
 
-        .navbar a:hover {
+        .sidebar a:hover {
             background-color: #ff69b4;
             transform: scale(1.1);
         }
@@ -94,28 +91,11 @@
             background-color: #ff69b4;
         }
 
-        /* Mobile Burger Menu */
-        .burger-menu {
-            display: none;
-            flex-direction: column;
-            cursor: pointer;
-        }
-
-        .burger-menu div {
-            width: 25px;
-            height: 3px;
-            background-color: #ff85c1;
-            margin: 5px 0;
-            border-radius: 5px;
-        }
-
-        /* Section Styling */
-        .section {
-            margin: 40px 0;
+        /* Content area */
+        .content {
+            margin-left: 250px;
             padding: 20px;
-            border-radius: 15px;
-            background-color: #fff0f6;
-            box-shadow: 0px 5px 15px rgba(0, 0, 0, 0.1);
+            width: 100%;
         }
 
         .section img {
@@ -124,7 +104,6 @@
             border-radius: 15px;
         }
 
-        /* 7 Dresses Section Styling */
         .dress-section {
             display: grid;
             grid-template-columns: repeat(3, 1fr);
@@ -156,134 +135,135 @@
             font-weight: bold;
         }
 
-        .footer-text {
-            color: #ff69b4;
-            text-shadow: 1px 1px 5px rgba(0, 0, 0, 0.2);
+        /* Hamburger Menu */
+        .burger-menu {
+            display: none;
+            flex-direction: column;
+            cursor: pointer;
+            position: absolute;
+            top: 20px;
+            left: 20px;
         }
 
-        /* Responsive design */
+        .burger-menu div {
+            width: 25px;
+            height: 3px;
+            background-color: #ff85c1;
+            margin: 5px 0;
+            border-radius: 5px;
+        }
+
+        /* Mobile Styles */
         @media (max-width: 768px) {
-            .navbar {
-                flex-direction: column;
-                align-items: center;
+            .sidebar {
+                width: 0;
+                padding-top: 60px;
+                transition: transform 0.3s ease;
             }
 
-            .navbar a {
-                margin: 10px 0;
+            .sidebar a {
+                padding: 15px;
+                font-size: 1.5rem;
             }
 
-            .dropdown-content {
-                position: relative;
-                display: flex;
-                flex-direction: column;
+            .sidebar.open {
+                width: 250px;
             }
 
-            .navbar {
-                display: flex;
-                justify-content: space-between;
+            .content {
+                margin-left: 0;
             }
 
             .burger-menu {
                 display: flex;
             }
-
-            .navbar-links {
-                display: none;
-                width: 100%;
-                text-align: center;
-            }
-
-            .navbar-links a {
-                display: block;
-                margin: 10px 0;
-            }
-
-            .navbar.active .navbar-links {
-                display: flex;
-            }
         }
+
     </style>
 </head>
 <body>
 
-    <!-- Navbar with clickable buttons and mobile burger menu -->
-    <div class="navbar">
-        <div class="burger-menu" onclick="toggleMenu()">
-            <div></div>
-            <div></div>
-            <div></div>
-        </div>
-        <div class="navbar-links">
-            <a href="#home">Home</a>
-            <div class="dropdown">
-                <a href="#">Wishlist</a>
-                <div class="dropdown-content">
-                    <a href="wishlist.html">Wishlist Items</a>
-                    <a href="dresses.html">7 Dresses</a>
-                </div>
+    <!-- Sidebar -->
+    <div class="sidebar" id="sidebar">
+        <a href="#home">Home</a>
+        <div class="dropdown">
+            <a href="#">Wishlist</a>
+            <div class="dropdown-content">
+                <a href="wishlist.html">Wishlist Items</a>
+                <a href="dresses.html">7 Dresses</a>
             </div>
-            <a href="location.html">Location</a>
-            <a href="expectations.html">What to Expect</a>
-            <a href="seat-number.html">Seat Number</a>
-            <a href="contact.html">Contact</a>
         </div>
+        <a href="location.html">Location</a>
+        <a href="expectations.html">What to Expect</a>
+        <a href="seat-number.html">Seat Number</a>
+        <a href="contact.html">Contact</a>
     </div>
 
-    <!-- Home Section -->
-    <section id="home" class="section">
-        <h1>Janeya Louvelle Turns 7!</h1>
-        <p>Join us for a magical Sanrio-themed birthday party!</p>
-        <img src="https://via.placeholder.com/400x300.png?text=Birthday+Girl" alt="Janeya Louvelle">
-        <div id="countdown" class="countdown"></div> <!-- Countdown Timer -->
-    </section>
+    <!-- Burger Menu for Mobile -->
+    <div class="burger-menu" onclick="toggleSidebar()">
+        <div></div>
+        <div></div>
+        <div></div>
+    </div>
 
-    <!-- Wishlist Section -->
-    <section id="wishlist" class="section">
-        <h2>Wishlist</h2>
-        <p>Check out my birthday wishlist or surprise me with a gift!</p>
-        <img src="https://via.placeholder.com/400x300.png?text=Wishlist+Items" alt="Wishlist">
-    </section>
+    <!-- Content -->
+    <div class="content">
+        <!-- Home Section -->
+        <section id="home" class="section">
+            <h1>Janeya Louvelle Turns 7!</h1>
+            <p>Join us for a magical Sanrio-themed birthday party!</p>
+            <img src="https://via.placeholder.com/400x300.png?text=Birthday+Girl" alt="Janeya Louvelle">
+            <div id="countdown" class="countdown"></div> <!-- Countdown Timer -->
+        </section>
 
-    <!-- 7 Dresses Section -->
-    <section id="dresses" class="section">
-        <h2>7 Dresses</h2>
-        <div class="dress-section">
-            <div class="dress-item">
-                <img src="https://via.placeholder.com/100" alt="Arno">
-                <p>Arno</p>
-            </div>
-            <div class="dress-item">
-                <img src="https://via.placeholder.com/100" alt="Emma">
-                <p>Emma</p>
-            </div>
-            <div class="dress-item">
-                <img src="https://via.placeholder.com/100" alt="Giana">
-                <p>Giana</p>
-            </div>
-            <div class="dress-item">
-                <img src="https://via.placeholder.com/100" alt="Jaylie">
-                <p>Jaylie</p>
-            </div>
-            <div class="dress-item">
-                <img src="https://via.placeholder.com/100" alt="Eriz">
-                <p>Eriz</p>
-            </div>
-            <div class="dress-item">
-                <img src="https://via.placeholder.com/100" alt="Dite">
-                <p>Dite</p>
-            </div>
-            <div class="dress-item">
-                <img src="https://via.placeholder.com/100" alt="Avisha">
-                <p>Avisha</p>
-            </div>
-        </div>
-    </section>
+        <!-- Wishlist Section -->
+        <section id="wishlist" class="section">
+            <h2>Wishlist</h2>
+            <p>Check out my birthday wishlist or surprise me with a gift!</p>
+            <img src="https://via.placeholder.com/400x300.png?text=Wishlist+Items" alt="Wishlist">
+        </section>
 
-    <!-- Other Sections... -->
+        <!-- 7 Dresses Section -->
+        <section id="dresses" class="section">
+            <h2>7 Dresses</h2>
+            <div class="dress-section">
+                <div class="dress-item">
+                    <img src="https://via.placeholder.com/100" alt="Arno">
+                    <p>Arno</p>
+                </div>
+                <div class="dress-item">
+                    <img src="https://via.placeholder.com/100" alt="Emma">
+                    <p>Emma</p>
+                </div>
+                <div class="dress-item">
+                    <img src="https://via.placeholder.com/100" alt="Giana">
+                    <p>Giana</p>
+                </div>
+                <div class="dress-item">
+                    <img src="https://via.placeholder.com/100" alt="Jaylie">
+                    <p>Jaylie</p>
+                </div>
+                <div class="dress-item">
+                    <img src="https://via.placeholder.com/100" alt="Eriz">
+                    <p>Eriz</p>
+                </div>
+                <div class="dress-item">
+                    <img src="https://via.placeholder.com/100" alt="Dite">
+                    <p>Dite</p>
+                </div>
+                <div class="dress-item">
+                    <img src="https://via.placeholder.com/100" alt="Avisha">
+                    <p>Avisha</p>
+                </div>
+            </div>
+        </section>
 
-    <footer>
-        <p class="footer-text">Looking forward to celebrating with you!</p>
-    </footer>
+        <!-- Other Sections... -->
+
+        <footer>
+            <p class="footer-text">Looking forward to celebrating with you!</p>
+        </footer>
+    </div>
 
     <script>
         // Countdown Timer script
@@ -297,8 +277,7 @@
             var minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
             var seconds = Math.floor((distance % (1000 * 60)) / 1000);
 
-            document.getElementById("countdown").innerHTML = days + "d " + hours + "h "
-            + minutes + "m " + seconds + "s ";
+            document.getElementById("countdown").innerHTML = days + "d " + hours + "h " + minutes + "m " + seconds + "s ";
 
             if (distance < 0) {
                 clearInterval(x);
@@ -306,10 +285,10 @@
             }
         }, 1000);
 
-        // Toggle Menu for Mobile
-        function toggleMenu() {
-            var navbar = document.querySelector('.navbar');
-            navbar.classList.toggle('active');
+        // Sidebar toggle function
+        function toggleSidebar() {
+            var sidebar = document.getElementById("sidebar");
+            sidebar.classList.toggle("open");
         }
     </script>
 
