@@ -42,6 +42,7 @@
             background-color: #ffcccb;
             padding: 15px;
             box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
+            position: relative;
         }
 
         .navbar a {
@@ -61,10 +62,36 @@
             transform: scale(1.1);
         }
 
-        /* Button Style */
-        .navbar a {
-            background: linear-gradient(45deg, #ff80ab, #ff4081);
-            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+        /* Dropdown styling */
+        .dropdown {
+            position: relative;
+            display: inline-block;
+        }
+
+        .dropdown-content {
+            display: none;
+            position: absolute;
+            background-color: #ff85c1;
+            min-width: 160px;
+            box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+            z-index: 1;
+            border-radius: 10px;
+        }
+
+        .dropdown:hover .dropdown-content {
+            display: block;
+        }
+
+        .dropdown-content a {
+            color: white;
+            padding: 12px 16px;
+            text-decoration: none;
+            display: block;
+            border-radius: 10px;
+        }
+
+        .dropdown-content a:hover {
+            background-color: #ff69b4;
         }
 
         /* Section Styling */
@@ -125,7 +152,13 @@
     <!-- Navbar with clickable buttons -->
     <div class="navbar">
         <a href="#home">Home</a>
-        <a href="#wishlist">Wishlist</a>
+        <div class="dropdown">
+            <a href="#">Wishlist</a>
+            <div class="dropdown-content">
+                <a href="#wishlist">Wishlist Items</a>
+                <a href="#dresses">7 Dresses</a>
+            </div>
+        </div>
         <a href="#location">Location</a>
         <a href="#expectations">What to Expect</a>
         <a href="#seat-number">Seat Number</a>
@@ -145,9 +178,11 @@
         <h2>Wishlist</h2>
         <p>Check out my birthday wishlist or surprise me with a gift!</p>
         <img src="https://via.placeholder.com/400x300.png?text=Wishlist+Items" alt="Wishlist">
-        
-        <!-- 7 Dresses Section -->
-        <h3>7 Dresses</h3>
+    </section>
+
+    <!-- 7 Dresses Section -->
+    <section id="dresses" class="section">
+        <h2>7 Dresses</h2>
         <div class="dress-section">
             <div class="dress-item">
                 <img src="https://via.placeholder.com/100" alt="Arno">
@@ -211,42 +246,30 @@
         <img src="https://via.placeholder.com/400x300.png?text=Contact+Us" alt="Contact">
     </section>
 
-    <!-- Footer -->
     <footer>
-        <p class="footer-text">© 2025 Janeya's Sanrio Party. All rights reserved!</p>
+        <p class="footer-text">Looking forward to celebrating with you!</p>
     </footer>
 
-    <!-- Countdown Script -->
     <script>
-        // Set the date and time for the countdown
-        var countDownDate = new Date("Dec 15, 2024 16:00:00").getTime();
-
-        // Update the countdown every 1 second
+        // Countdown Timer script
+        var countdownDate = new Date("Dec 15, 2024 16:00:00").getTime();
         var x = setInterval(function() {
-
-            // Get the current date and time
             var now = new Date().getTime();
+            var distance = countdownDate - now;
 
-            // Calculate the difference between now and the countdown date
-            var distance = countDownDate - now;
-
-            // Time calculations
             var days = Math.floor(distance / (1000 * 60 * 60 * 24));
             var hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
             var minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
             var seconds = Math.floor((distance % (1000 * 60)) / 1000);
 
-            // Display the result in the element with id="countdown"
             document.getElementById("countdown").innerHTML = days + "d " + hours + "h "
             + minutes + "m " + seconds + "s ";
 
-            // If the countdown is finished, write some text
             if (distance < 0) {
                 clearInterval(x);
                 document.getElementById("countdown").innerHTML = "Party Time!";
             }
         }, 1000);
     </script>
-
 </body>
 </html>
