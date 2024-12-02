@@ -22,36 +22,30 @@
         /* Container */
         .landing-container {
             text-align: center;
-            max-width: 600px;
+            max-width: 90%;
+            width: 600px;
             padding: 20px;
             background: rgba(255, 255, 255, 0.9);
             border-radius: 20px;
             box-shadow: 0px 4px 15px rgba(0, 0, 0, 0.1);
-            position: relative;
         }
 
         /* Title and Tagline */
         .title {
             font-family: 'Cookie', cursive;
-            font-size: 2.5em;
+            font-size: 2em;
             color: #ff80c0;
             margin: 20px 0;
         }
 
         .tagline {
-            font-size: 1.2em;
+            font-size: 1em;
             color: #666;
             margin: 20px 0;
         }
 
-        /* Images */
-        .cinnamonroll-img {
-            width: 200px;
-            margin-top: -20px;
-        }
-
-        .era-img {
-            width: 250px;
+        .eya-img {
+            width: 200px; /* Adjusted size */
             margin: 20px 0;
             border-radius: 12px;
             box-shadow: 0px 4px 15px rgba(0, 0, 0, 0.1);
@@ -61,8 +55,8 @@
         .enter-button {
             background: linear-gradient(to bottom, #ffe6f7, #ffb3da);
             color: #ff80c0;
-            font-size: 1.3em;
-            padding: 15px 30px;
+            font-size: 1.1em;
+            padding: 10px 20px;
             border: 3px solid #ff80c0;
             border-radius: 30px;
             cursor: pointer;
@@ -86,16 +80,72 @@
         }
 
         .timer {
-            font-size: 1.5em;
+            font-size: 1.2em;
             font-weight: bold;
             color: #ff80c0;
+        }
+
+        /* Media Queries for Responsiveness */
+        @media (max-width: 768px) {
+            .landing-container {
+                width: 90%;
+                padding: 15px;
+            }
+
+            .title {
+                font-size: 1.8em;
+            }
+
+            .tagline {
+                font-size: 0.9em;
+            }
+
+            .cinnamonroll-img {
+                width: 120px; /* Smaller size for mobile */
+            }
+
+            .era-img {
+                width: 150px; /* Smaller size for mobile */
+            }
+
+            .enter-button {
+                font-size: 1em;
+                padding: 8px 18px;
+            }
+
+            .timer {
+                font-size: 1em;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .title {
+                font-size: 1.5em;
+            }
+
+            .tagline {
+                font-size: 0.8em;
+            }
+
+            .cinnamonroll-img {
+                width: 100px;
+            }
+
+            .era-img {
+                width: 120px;
+            }
+
+            .enter-button {
+                font-size: 0.9em;
+                padding: 6px 15px;
+            }
         }
     </style>
 </head>
 <body>
     <div class="landing-container">
-         <!-- New Image -->
-        <img src="eya.png" alt="eya" class="eya-img">
+               <!-- New Image -->
+        <img src="eya.png" alt="Eya" class="eya-img">
 
         <!-- Title and Tagline -->
         <h1 class="title">Welcome to Janeya Louvelle's 7th Birthday Party!</h1>
@@ -121,8 +171,8 @@
 
             const days = Math.floor(distance / (1000 * 60 * 60 * 24));
             const hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
-            const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
-            const seconds = Math.floor((distance % (1000 * 60)) / 1000);
+            const minutes = Math.floor((distance % (1000 * 60)) / (1000 * 60));
+            const seconds = Math.floor((distance % (1000)) / 1000);
 
             document.getElementById("timer").innerHTML = `${days}d ${hours}h ${minutes}m ${seconds}s`;
 
