@@ -4,18 +4,82 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Janeya Louvelle's Birthday Party</title>
-    <link rel="stylesheet" href="styles.css">
-    <link href="https://fonts.googleapis.com/css2?family=Cookie&family=Poppins:wght@300;400&display=swap" rel="stylesheet">
+    <title>Janeya Louvelle's 7th Birthday Party</title>
+    <style>
+        /* Base Styles */
+        body {
+            margin: 0;
+            font-family: 'Poppins', sans-serif;
+            background: linear-gradient(to bottom, #f9f7fd, #ffebf8);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            color: #555;
+        }
+
+        .landing-container {
+            text-align: center;
+            max-width: 600px;
+            padding: 20px;
+            background: #ffffff;
+            border-radius: 20px;
+            box-shadow: 0px 4px 15px rgba(0, 0, 0, 0.1);
+            position: relative;
+        }
+
+        .title {
+            font-family: 'Cookie', cursive;
+            font-size: 2.5em;
+            color: #ff80c0;
+            margin: 20px 0;
+        }
+
+        .tagline {
+            font-size: 1.2em;
+            color: #666;
+            margin: 20px 0;
+        }
+
+        .cinnamonroll-img {
+            width: 200px;
+            margin-top: -40px;
+        }
+
+        .enter-button {
+            background-color: #ffebf8;
+            color: #ff80c0;
+            border: 2px solid #ff80c0;
+            font-size: 1.2em;
+            padding: 15px 25px;
+            border-radius: 12px;
+            cursor: pointer;
+            margin-top: 20px;
+            transition: all 0.3s ease;
+        }
+
+        .enter-button:hover {
+            background-color: #ff80c0;
+            color: white;
+        }
+
+        .countdown {
+            margin-top: 30px;
+        }
+
+        .timer {
+            font-size: 1.5em;
+            font-weight: bold;
+            color: #ff80c0;
+        }
+    </style>
 </head>
 <body>
     <div class="landing-container">
-        <div class="content">
-            <img src="https://i.imgur.com/kxVoJYI.png" alt="Cinnamonroll" class="cinnamonroll-img">
-            <h1 class="title">Welcome to Janeya Louvelle's 7th Birthday Party!</h1>
-            <p class="tagline">✨ Join us for a magical celebration filled with fun surprises and cuteness! ✨</p>
-            <button class="enter-button" onclick="window.location.href='party-page.html'">Enter the Party</button>
-        </div>
+        <img src="https://i.imgur.com/kxVoJYI.png" alt="Cinnamonroll" class="cinnamonroll-img">
+        <h1 class="title">Welcome to Janeya Louvelle's 7th Birthday Party!</h1>
+        <p class="tagline">✨ Join us for a magical celebration filled with fun surprises and cuteness! ✨</p>
+        <button class="enter-button" onclick="window.location.href='party-page.html'">Enter the Party</button>
 
         <div class="countdown">
             <p>Countdown to the big day:</p>
@@ -23,6 +87,26 @@
         </div>
     </div>
 
-    <script src="countdown.js"></script>
+    <script>
+        // Set the date of the birthday party
+        const countdownDate = new Date("Dec 15, 2024 15:00:00").getTime();
+
+        const timer = setInterval(() => {
+            const now = new Date().getTime();
+            const distance = countdownDate - now;
+
+            const days = Math.floor(distance / (1000 * 60 * 60 * 24));
+            const hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+            const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+            const seconds = Math.floor((distance % (1000 * 60)) / 1000);
+
+            document.getElementById("timer").innerHTML = `${days}d ${hours}h ${minutes}m ${seconds}s`;
+
+            if (distance < 0) {
+                clearInterval(timer);
+                document.getElementById("timer").innerHTML = "The party has started!";
+            }
+        }, 1000);
+    </script>
 </body>
 </html>
