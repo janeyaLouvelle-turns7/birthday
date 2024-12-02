@@ -19,11 +19,11 @@
             color: #555;
         }
 
-        /* Container */
+        /* Responsive Container */
         .landing-container {
             text-align: center;
-            max-width: 90%;
-            width: 600px;
+            width: 90%; /* Full-width for smaller screens */
+            max-width: 600px; /* Limit for larger screens */
             padding: 20px;
             background: rgba(255, 255, 255, 0.9);
             border-radius: 20px;
@@ -44,8 +44,10 @@
             margin: 20px 0;
         }
 
+        /* Images */
+
         .eya-img {
-            width: 200px; /* Adjusted size */
+            width: 200px;
             margin: 20px 0;
             border-radius: 12px;
             box-shadow: 0px 4px 15px rgba(0, 0, 0, 0.1);
@@ -88,7 +90,7 @@
         /* Media Queries for Responsiveness */
         @media (max-width: 768px) {
             .landing-container {
-                width: 90%;
+                width: 95%; /* Adjust for tablets and smaller screens */
                 padding: 15px;
             }
 
@@ -101,11 +103,11 @@
             }
 
             .cinnamonroll-img {
-                width: 120px; /* Smaller size for mobile */
+                width: 120px;
             }
 
             .era-img {
-                width: 150px; /* Smaller size for mobile */
+                width: 150px;
             }
 
             .enter-button {
@@ -119,6 +121,11 @@
         }
 
         @media (max-width: 480px) {
+            .landing-container {
+                width: 95%;
+                padding: 10px;
+            }
+
             .title {
                 font-size: 1.5em;
             }
@@ -131,7 +138,7 @@
                 width: 100px;
             }
 
-            .era-img {
+            .eya-img {
                 width: 120px;
             }
 
@@ -139,17 +146,24 @@
                 font-size: 0.9em;
                 padding: 6px 15px;
             }
+
+            .timer {
+                font-size: 0.9em;
+            }
         }
     </style>
 </head>
 <body>
     <div class="landing-container">
-               <!-- New Image -->
-        <img src="eya.png" alt="Eya" class="eya-img">
+  <!-- Image with Transparent Background -->
+        <img src="eya_transparent.png" alt="Eya" class="eya-img">
 
         <!-- Title and Tagline -->
         <h1 class="title">Welcome to Janeya Louvelle's 7th Birthday Party!</h1>
         <p class="tagline">✨ Join us for a magical celebration filled with fun surprises and cuteness! ✨</p>
+
+        <!-- Image with Transparent Background -->
+        <img src="eya_transparent.png" alt="Eya" class="eya-img">
 
         <!-- Cute Enter Button -->
         <button class="enter-button" onclick="window.location.href='party-page.html'">Enter the Party</button>
