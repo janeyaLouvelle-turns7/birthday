@@ -34,10 +34,56 @@
       font-size: 18px;
       text-decoration: none;
       font-weight: 600;
+      position: relative;
+      padding: 5px 10px;
     }
 
     nav a:hover {
-      text-decoration: underline;
+      text-decoration: none;
+      color: #ff1493;
+    }
+
+    nav a::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 50%;
+      width: 0;
+      height: 3px;
+      background-color: #FF69B4;
+      transition: width 0.3s, left 0.3s;
+      z-index: -1;
+    }
+
+    nav a:hover::before {
+      width: 100%;
+      left: 0;
+    }
+
+    /* Ribbon Effect for Menu Buttons */
+    nav a {
+      display: inline-block;
+      position: relative;
+      text-transform: uppercase;
+      font-weight: 600;
+      font-size: 18px;
+      padding: 10px 25px;
+      background: #FFB6C1;
+      color: #fff;
+      border-radius: 25px;
+      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+    }
+
+    nav a::after {
+      content: '🎀';
+      position: absolute;
+      top: -8px;
+      right: -8px;
+      font-size: 18px;
+    }
+
+    nav a:hover {
+      background: #FF69B4;
     }
 
     /* Countdown Styling */
@@ -110,6 +156,17 @@
       width: 100%;
     }
 
+    /* Placeholder Image */
+    .placeholder-img {
+      display: block;
+      margin: 0 auto;
+      width: 80%;
+      max-width: 300px;
+      height: auto;
+      border-radius: 10px;
+      background-color: #f0f0f0;
+    }
+
     /* Responsive Design */
     @media (max-width: 768px) {
       .timer {
@@ -174,6 +231,7 @@
   <div class="section" id="about">
     <h2>About Me</h2>
     <p>Hi, I'm [Your Name]! Join me for a day filled with Sanrio fun!</p>
+    <img src="placeholder.jpg" alt="Placeholder Image" class="placeholder-img">
   </div>
 
   <!-- Gifts Section -->
