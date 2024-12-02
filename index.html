@@ -5,26 +5,21 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Janeya Louvelle Turns 7</title>
     <style>
-        /* General Styling */
+        /* General Styles */
         body {
             font-family: 'Comic Sans MS', sans-serif;
-            background-color: #fce4ec;
             margin: 0;
             padding: 0;
+            background-color: #fce4ec;
             display: flex;
             min-height: 100vh;
         }
 
-        h1 {
-            font-size: 3rem;
+        h1, h2 {
+            text-align: center;
             color: #ff85c1;
-            margin-top: 20px;
             text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.2);
-        }
-
-        h2 {
-            font-size: 2rem;
-            color: #ff69b4;
+            margin: 20px;
         }
 
         /* Sidebar Styles */
@@ -36,12 +31,12 @@
             top: 0;
             left: -250px; /* Initially hidden */
             padding-top: 20px;
-            box-shadow: 3px 0px 15px rgba(0, 0, 0, 0.1);
             transition: left 0.3s ease;
             z-index: 1000;
         }
 
         .sidebar a {
+            display: block;
             text-decoration: none;
             color: white;
             background-color: #ff85c1;
@@ -50,7 +45,7 @@
             border-radius: 50px;
             font-size: 1.2rem;
             font-weight: bold;
-            transition: transform 0.3s ease, background-color 0.3s ease;
+            transition: background-color 0.3s ease, transform 0.3s ease;
         }
 
         .sidebar a:hover {
@@ -58,19 +53,7 @@
             transform: scale(1.1);
         }
 
-        .sidebar .dropdown-content a {
-            color: white;
-            padding: 12px 16px;
-            text-decoration: none;
-            display: block;
-            border-radius: 10px;
-        }
-
-        .sidebar .dropdown-content a:hover {
-            background-color: #ff69b4;
-        }
-
-        /* Hamburger Menu */
+        /* Burger Menu */
         .burger-menu {
             display: none;
             flex-direction: column;
@@ -133,7 +116,16 @@
             font-weight: bold;
         }
 
-        /* Responsive Styles */
+        /* Countdown Styles */
+        #countdown {
+            font-size: 2rem;
+            font-weight: bold;
+            color: #ff85c1;
+            margin-top: 20px;
+            text-align: center;
+        }
+
+        /* Media Queries for Responsiveness */
         @media (max-width: 768px) {
             /* Sidebar Styles for Mobile */
             .sidebar {
@@ -144,12 +136,13 @@
                 left: 0; /* Show sidebar */
             }
 
-            /* Content Adjustments */
+            /* Content Styles for Mobile */
             .content {
                 margin-left: 0;
+                padding: 10px;
             }
 
-            /* Burger Menu */
+            /* Mobile Burger Menu */
             .burger-menu {
                 display: flex;
             }
@@ -159,15 +152,43 @@
                 padding: 15px;
             }
 
-            .burger-menu div {
-                width: 30px;
-                height: 4px;
-                background-color: #ff85c1;
-                margin: 6px 0;
-            }
-
             .sidebar.open + .content {
                 margin-left: 0; /* Content moves under the sidebar */
+            }
+
+            .dress-section {
+                grid-template-columns: 1fr 1fr; /* Two columns on mobile */
+                gap: 10px;
+            }
+
+            /* Countdown Font Size on Mobile */
+            #countdown {
+                font-size: 1.5rem;
+            }
+
+            /* Resize images on mobile */
+            .section img {
+                max-height: 250px;
+            }
+
+            footer {
+                font-size: 1rem;
+            }
+        }
+
+        /* For Very Small Screens (e.g., 400px) */
+        @media (max-width: 480px) {
+            h1 {
+                font-size: 2rem; /* Smaller font for very small screens */
+            }
+
+            .sidebar a {
+                font-size: 1.2rem;
+                padding: 12px;
+            }
+
+            #countdown {
+                font-size: 1.2rem;
             }
         }
     </style>
@@ -249,8 +270,6 @@
             </div>
         </section>
 
-        <!-- Other Sections... -->
-
         <footer>
             <p class="footer-text">Looking forward to celebrating with you!</p>
         </footer>
@@ -282,6 +301,5 @@
             sidebar.classList.toggle("open");
         }
     </script>
-
 </body>
 </html>
