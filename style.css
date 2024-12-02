@@ -1,3 +1,4 @@
+/* Base styles */
 * {
     margin: 0;
     padding: 0;
@@ -7,58 +8,105 @@
 body {
     font-family: Arial, sans-serif;
     background-color: #f9f9f9;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    height: 100vh;
+    color: #444;
 }
 
-.landing-page {
-    text-align: center;
-    background: url('https://example.com/cinnamonroll-bg.jpg') no-repeat center center;
-    background-size: cover;
-    padding: 40px;
-    border-radius: 20px;
-    box-shadow: 0 4px 8px rgba(0,0,0,0.2);
-    width: 80%;
-    max-width: 600px;
-    color: #fff;
-}
-
-h1 {
-    font-size: 2.5em;
-    margin-bottom: 20px;
-}
-
-.tagline {
-    font-size: 1.2em;
-    margin-bottom: 30px;
-    font-weight: lighter;
-}
-
-.enter-button {
-    background-color: #f1c6d3;
+h1, h2 {
     color: #ff80c0;
-    border: none;
-    padding: 15px 25px;
+}
+
+h2 {
+    margin-top: 20px;
+}
+
+.section {
+    padding: 20px;
+    margin: 20px 0;
+    background-color: #fff;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+}
+
+.navbar {
+    background-color: #f1c6d3;
+    padding: 15px 0;
+    text-align: center;
+}
+
+.navbar ul {
+    list-style-type: none;
+    padding: 0;
+}
+
+.navbar li {
+    display: inline-block;
+    margin: 0 15px;
+}
+
+.navbar a {
+    text-decoration: none;
+    color: #ff80c0;
     font-size: 1.2em;
-    cursor: pointer;
-    border-radius: 10px;
+    padding: 10px 20px;
+    border-radius: 8px;
     transition: background-color 0.3s ease;
 }
 
-.enter-button:hover {
+.navbar a:hover {
     background-color: #ff80c0;
-    color: #fff;
+    color: white;
 }
 
-#countdown {
-    font-size: 1.5em;
-    margin-top: 40px;
+/* Button Styling */
+.nav-link {
+    background-color: #fff;
+    border: 2px solid #ff80c0;
+    padding: 12px 20px;
+    font-size: 1.1em;
+    color: #ff80c0;
+    border-radius: 8px;
+    transition: all 0.3s ease;
 }
 
-#timer {
-    font-size: 2em;
-    font-weight: bold;
-    margin-top: 10px;
+.nav-link:hover {
+    background-color: #ff80c0;
+    color: white;
+    border: 2px solid #fff;
+}
+
+/* Mobile responsiveness */
+@media (max-width: 768px) {
+    .navbar li {
+        display: block;
+        margin: 10px 0;
+    }
+
+    .navbar a {
+        font-size: 1.1em;
+        padding: 15px;
+    }
+
+    .section {
+        margin: 10px 0;
+        padding: 15px;
+    }
+
+    .content {
+        padding: 10px;
+    }
+}
+
+@media (max-width: 480px) {
+    .navbar a {
+        font-size: 1em;
+        padding: 12px;
+    }
+
+    .section {
+        padding: 10px;
+    }
+
+    .content {
+        padding: 5px;
+    }
 }
