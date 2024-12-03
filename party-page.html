@@ -79,11 +79,53 @@
       }
     }
 
+    /* Countdown Styling */
+    .countdown-container {
+      text-align: center;
+      margin-top: 100px;
+      padding: 20px;
+      background: rgba(255, 182, 193, 0.7);
+      border-radius: 15px;
+      box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
+    }
+
+    .title {
+      font-size: 25px;
+      color: #FF69B4;
+      margin-bottom: 20px;
+      text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2);
+    }
+
+    .timer {
+      display: flex;
+      justify-content: center;
+      gap: 20px;
+      font-size: 20px;
+      color: #fff;
+    }
+
+    .time-box {
+      background: #FFD1E8;
+      padding: 10px;
+      border-radius: 10px;
+      width: 60px;
+      height: 100px;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+    }
+
+    .time-box span {
+      font-size: 14px;
+      color: #FFB6C1;
+    }
+
     /* Photo Gallery */
     .gallery-container {
-      margin: 50px auto;
-      width: 80%;
-      max-width: 1000px;
+      margin: 20px auto;
+      width: 50%;
+      max-width: 600px;
       position: relative;
       overflow: hidden;
       border-radius: 15px;
@@ -129,13 +171,26 @@
     /* Responsive */
     @media (max-width: 768px) {
       .gallery-container {
-        width: 90%;
+        width: 80%;
+      }
+
+      .countdown-container {
+        margin-top: 120px;
       }
     }
 
     @media (max-width: 480px) {
       .gallery-container {
-        width: 100%;
+        width: 90%;
+      }
+
+      .timer {
+        flex-direction: column;
+      }
+
+      .time-box {
+        width: 50px;
+        height: 80px;
       }
     }
   </style>
@@ -158,20 +213,41 @@
     </div>
   </nav>
 
+  <!-- Countdown Section -->
+  <div class="countdown-container" id="home">
+    <div class="title">🎀 Welcome to My Sanrio Party! 🎀</div>
+    <div class="timer">
+      <div class="time-box">
+        <div id="days">00</div>
+        <span>Days</span>
+      </div>
+      <div class="time-box">
+        <div id="hours">00</div>
+        <span>Hours</span>
+      </div>
+      <div class="time-box">
+        <div id="minutes">00</div>
+        <span>Minutes</span>
+      </div>
+      <div class="time-box">
+        <div id="seconds">00</div>
+        <span>Seconds</span>
+      </div>
+    </div>
+  </div>
+
   <!-- Photo Gallery Section -->
   <div class="section" id="gallery">
     <h2>🎀 My Sanrio Gallery 🎀</h2>
     <div class="gallery-container">
       <div class="gallery-slider" id="gallery-slider">
-        <!-- Placeholder Images -->
-        <div class="gallery-slide"><img src="https://via.placeholder.com/1000x600?text=Photo+1" alt="Photo 1"></div>
-        <div class="gallery-slide"><img src="https://via.placeholder.com/1000x600?text=Photo+2" alt="Photo 2"></div>
-        <div class="gallery-slide"><img src="https://via.placeholder.com/1000x600?text=Photo+3" alt="Photo 3"></div>
-        <div class="gallery-slide"><img src="https://via.placeholder.com/1000x600?text=Photo+4" alt="Photo 4"></div>
+        <div class="gallery-slide"><img src="https://via.placeholder.com/600x400?text=Photo+1" alt="Photo 1"></div>
+        <div class="gallery-slide"><img src="https://via.placeholder.com/600x400?text=Photo+2" alt="Photo 2"></div>
+        <div class="gallery-slide"><img src="https://via.placeholder.com/600x400?text=Photo+3" alt="Photo 3"></div>
+        <div class="gallery-slide"><img src="https://via.placeholder.com/600x400?text=Photo+4" alt="Photo 4"></div>
       </div>
     </div>
     <div class="dots" id="dots">
-      <!-- Dots for Navigation -->
       <span class="dot" onclick="currentSlide(0)"></span>
       <span class="dot" onclick="currentSlide(1)"></span>
       <span class="dot" onclick="currentSlide(2)"></span>
@@ -186,33 +262,51 @@
       navLinks.classList.toggle('active');
     }
 
-    // Gallery Slider Logic
-    const slider = document.getElementById('gallery-slider');
-    const slides = document.querySelectorAll('.gallery-slide');
-    const dots = document.querySelectorAll('.dot');
+    // Countdown
+    const targetDate = new Date("2025-12-15T16:00:00").getTime();
+
+    function updateCountdown() {
+      const now = new Date().getTime();
+      const timeLeft = targetDate - now;
+
+      const days = Math.floor(timeLeft / (1000 * 60 * 60 * 24));
+      const hours = Math.floor((timeLeft % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+      const minutes = Math.floor((timeLeft % (1000 * 60 * 60)) / (1000 * 60));
+      const seconds = Math.floor((timeLeft % (1000 * 60)) / 1000);
+
+      document.getElementById("days").innerText = days.toString().padStart(2, '0');
+      document.getElementById("hours").innerText = hours.toString().padStart(2, '0');
+      document.getElementById("minutes").innerText = minutes.toString().padStart(2, '0');
+      document.getElementById("seconds").innerText = seconds.toString().padStart(2, '0');
+    }
+
+    setInterval(updateCountdown, 1000);
+
+    // Gallery Carousel
     let currentIndex = 0;
 
     function showSlide(index) {
+      const slider = document.getElementById('gallery-slider');
+      const dots = document.querySelectorAll('.dot');
+
+      if (index >= slider.children.length) index = 0;
+      if (index < 0) index = slider.children.length - 1;
+
       slider.style.transform = `translateX(-${index * 100}%)`;
+
       dots.forEach(dot => dot.classList.remove('active'));
       dots[index].classList.add('active');
-      currentIndex = index;
-    }
 
-    function nextSlide() {
-      currentIndex = (currentIndex + 1) % slides.length;
-      showSlide(currentIndex);
+      currentIndex = index;
     }
 
     function currentSlide(index) {
       showSlide(index);
     }
 
-    // Auto-slide every 5 seconds
-    setInterval(nextSlide, 5000);
-
-    // Initialize the first slide as active
-    showSlide(currentIndex);
+    setInterval(() => {
+      showSlide(currentIndex + 1);
+    }, 3000); // Change slide every 3 seconds
   </script>
 </body>
 </html>
