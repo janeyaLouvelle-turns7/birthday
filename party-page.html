@@ -46,6 +46,7 @@
       padding: 10px 15px;
       border-radius: 20px;
       display: inline-block;
+      transition: all 0.3s ease;
     }
 
     nav ul li a:hover {
@@ -95,7 +96,8 @@
     /* Carousel Gallery */
     .carousel {
       position: relative;
-      max-width: 100%;
+      max-width: 90%;
+      max-height: 300px;
       margin: 20px auto;
       overflow: hidden;
       border-radius: 15px;
@@ -104,6 +106,7 @@
 
     .carousel img {
       width: 100%;
+      height: auto;
       display: block;
     }
 
@@ -150,6 +153,10 @@
       .time-box span {
         font-size: 10px;
       }
+
+      .carousel {
+        max-height: 200px;
+      }
     }
 
     @media (max-width: 480px) {
@@ -160,6 +167,15 @@
 
       nav ul li {
         margin: 5px 0;
+      }
+
+      nav ul li a {
+        font-size: 12px;
+        padding: 8px 10px;
+      }
+
+      .carousel {
+        max-height: 150px;
       }
     }
   </style>
@@ -201,9 +217,9 @@
 
   <!-- Carousel Photo Gallery -->
   <div id="gallery" class="carousel">
-    <img src="https://via.placeholder.com/800x400/FF69B4/FFFFFF?text=Photo+1" alt="Photo 1">
-    <img src="https://via.placeholder.com/800x400/FFD1E8/FFFFFF?text=Photo+2" alt="Photo 2" style="display: none;">
-    <img src="https://via.placeholder.com/800x400/FCE4EC/FFFFFF?text=Photo+3" alt="Photo 3" style="display: none;">
+    <img src="https://via.placeholder.com/800x300/FF69B4/FFFFFF?text=Photo+1" alt="Photo 1">
+    <img src="https://via.placeholder.com/800x300/FFD1E8/FFFFFF?text=Photo+2" alt="Photo 2" style="display: none;">
+    <img src="https://via.placeholder.com/800x300/FCE4EC/FFFFFF?text=Photo+3" alt="Photo 3" style="display: none;">
     <div class="carousel-controls">
       <button class="carousel-button" onclick="prevSlide()">❮</button>
       <button class="carousel-button" onclick="nextSlide()">❯</button>
