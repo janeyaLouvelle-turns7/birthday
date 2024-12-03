@@ -19,12 +19,24 @@
     /* Navigation Menu */
     nav {
       background: #FF69B4;
-      padding: 10px 0;
-      display: flex;
-      justify-content: center;
+      padding: 10px;
       position: sticky;
       top: 0;
       z-index: 999;
+    }
+
+    nav .menu {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      max-width: 1200px;
+      margin: 0 auto;
+    }
+
+    nav .menu-title {
+      color: #ffeef7;
+      font-size: 18px;
+      font-weight: bold;
     }
 
     nav ul {
@@ -50,6 +62,42 @@
     }
 
     nav ul li a:hover {
+      background: #ffb6c1;
+      color: white;
+    }
+
+    /* Burger Menu */
+    .burger {
+      display: none;
+      cursor: pointer;
+      font-size: 24px;
+      color: #ffeef7;
+    }
+
+    .burger-menu {
+      display: none;
+      flex-direction: column;
+      position: absolute;
+      top: 60px;
+      right: 10px;
+      background: #FF69B4;
+      border-radius: 10px;
+      box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+    }
+
+    .burger-menu li {
+      margin: 0;
+    }
+
+    .burger-menu li a {
+      padding: 10px 15px;
+      display: block;
+      text-align: left;
+      color: #ffeef7;
+      border-bottom: 1px solid #ffb6c1;
+    }
+
+    .burger-menu li a:hover {
       background: #ffb6c1;
       color: white;
     }
@@ -110,7 +158,6 @@
       display: block;
     }
 
-    /* Carousel Controls */
     .carousel-controls {
       position: absolute;
       top: 50%;
@@ -138,20 +185,16 @@
 
     /* Responsive Styling */
     @media (max-width: 768px) {
-      .countdown-container h1 {
-        font-size: 18px;
+      nav ul {
+        display: none;
       }
 
-      .time-box {
-        width: 50px;
+      .burger {
+        display: block;
       }
 
-      .time-box h2 {
-        font-size: 16px;
-      }
-
-      .time-box span {
-        font-size: 10px;
+      .burger-menu {
+        display: flex;
       }
 
       .carousel {
@@ -160,20 +203,6 @@
     }
 
     @media (max-width: 480px) {
-      nav ul {
-        flex-wrap: wrap;
-        gap: 5px;
-      }
-
-      nav ul li {
-        margin: 5px 0;
-      }
-
-      nav ul li a {
-        font-size: 12px;
-        padding: 8px 10px;
-      }
-
       .carousel {
         max-height: 150px;
       }
@@ -183,13 +212,24 @@
 <body>
   <!-- Navigation Menu -->
   <nav>
-    <ul>
-      <li><a href="#home">Home</a></li>
-      <li><a href="#wishlist">Wishlist</a></li>
-      <li><a href="#location">Location</a></li>
-      <li><a href="#expect">What to Expect</a></li>
-      <li><a href="#contact">Contact</a></li>
-    </ul>
+    <div class="menu">
+      <div class="menu-title">🎉 Sanrio Party</div>
+      <div class="burger" onclick="toggleMenu()">☰</div>
+      <ul>
+        <li><a href="#home">Home</a></li>
+        <li><a href="#wishlist">Wishlist</a></li>
+        <li><a href="#location">Location</a></li>
+        <li><a href="#expect">What to Expect</a></li>
+        <li><a href="#contact">Contact</a></li>
+      </ul>
+      <div class="burger-menu" id="burgerMenu">
+        <li><a href="#home">Home</a></li>
+        <li><a href="#wishlist">Wishlist</a></li>
+        <li><a href="#location">Location</a></li>
+        <li><a href="#expect">What to Expect</a></li>
+        <li><a href="#contact">Contact</a></li>
+      </div>
+    </div>
   </nav>
 
   <!-- Countdown Section -->
@@ -232,6 +272,12 @@
   </footer>
 
   <script>
+    // Toggle Burger Menu
+    function toggleMenu() {
+      const menu = document.getElementById("burgerMenu");
+      menu.style.display = menu.style.display === "flex" ? "none" : "flex";
+    }
+
     // Countdown Script
     const targetDate = new Date("2025-12-15T00:00:00").getTime();
 
