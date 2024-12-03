@@ -255,11 +255,61 @@
     </div>
   </div>
 
-  <!-- Carousel Photo Gallery -->
-  <div id="gallery" class="carousel">
-    <img src="https://via.placeholder.com/800x300/FF69B4/FFFFFF?text=Photo+1" alt="Photo 1">
-    <img src="https://via.placeholder.com/800x300/FFD1E8/FFFFFF?text=Photo+2" alt="Photo 2" style="display: none;">
-    <img src="https://via.placeholder.com/800x300/FCE4EC/FFFFFF?text=Photo+3" alt="Photo 3" style="display: none;">
+  <!-- Wishlist Section -->
+  <div id="wishlist" class="countdown-container">
+    <h1>Wishlist</h1>
+    <p>Check out my birthday wishlist or surprise me with a gift!</p>
+    <div>
+      <img src="https://via.placeholder.com/200" alt="Wishlist Placeholder">
+    </div>
+  </div>
+
+  <!-- Location Section -->
+  <div id="location" class="countdown-container">
+    <h1>When & Where</h1>
+    <p>Fukuyama Regency Resort, Lambing Rd. Bray San Jose Morong, Rizal</p>
+    <p><strong>December 15, 2024 4:00 PM</strong></p>
+    <img src="https://via.placeholder.com/300" alt="Location Placeholder">
+  </div>
+
+  <!-- What to Expect Section -->
+  <div id="expect" class="countdown-container">
+    <h1>What to Expect</h1>
+    <ul>
+      <li>
+        <strong>Afternoon snacks and dinner</strong>
+        <img src="https://via.placeholder.com/150" alt="Snacks and Dinner">
+      </li>
+      <li>
+        <strong>Game and Fun Prizes</strong>
+        <img src="https://via.placeholder.com/150" alt="Games and Prizes">
+      </li>
+      <li>
+        <strong>Lots of dance and singing with Cinnamonroll</strong>
+        <img src="https://via.placeholder.com/150" alt="Dance and Singing">
+      </li>
+      <li>
+        <strong>Join me to watch a fireworks display</strong>
+        <img src="https://via.placeholder.com/150" alt="Fireworks">
+      </li>
+    </ul>
+  </div>
+
+  <!-- Contact Section -->
+  <div id="contact" class="countdown-container">
+    <h1>Got Questions?</h1>
+    <p>Contact Genalyn/Jowett:</p>
+    <p>📞 09153399787</p>
+    <p>Follow us on socials:</p>
+    <p><a href="https://www.facebook.com/genalin.cabilao/" target="_blank">Facebook (Genalyn)</a></p>
+    <p><a href="https://www.facebook.com/jowett.cenena" target="_blank">Facebook (Jowett)</a></p>
+  </div>
+
+  <!-- Carousel Section -->
+  <div class="carousel">
+    <img src="https://via.placeholder.com/500" alt="Carousel Image 1">
+    <img src="https://via.placeholder.com/500" alt="Carousel Image 2" style="display: none;">
+    <img src="https://via.placeholder.com/500" alt="Carousel Image 3" style="display: none;">
     <div class="carousel-controls">
       <button class="carousel-button" onclick="prevSlide()">❮</button>
       <button class="carousel-button" onclick="nextSlide()">❯</button>
@@ -268,22 +318,21 @@
 
   <!-- Footer -->
   <footer>
-    © 2025 Sanrio Party by Your Name
+    <p>&copy; 2024 Janeya Louvelle's Birthday Party</p>
   </footer>
 
   <script>
-    // Toggle Burger Menu
+    // Toggle Menu Script
     function toggleMenu() {
       const menu = document.getElementById("burgerMenu");
-      menu.style.display = menu.style.display === "flex" ? "none" : "flex";
+      menu.style.display = (menu.style.display === "flex") ? "none" : "flex";
     }
 
-    // Countdown Script
-    const targetDate = new Date("2025-12-15T00:00:00").getTime();
-
+    // Countdown Timer Script
     function updateCountdown() {
+      const eventDate = new Date("2024-12-15T16:00:00").getTime();
       const now = new Date().getTime();
-      const distance = targetDate - now;
+      const distance = eventDate - now;
 
       document.getElementById("days").innerText = Math.floor(distance / (1000 * 60 * 60 * 24)).toString().padStart(2, '0');
       document.getElementById("hours").innerText = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60)).toString().padStart(2, '0');
