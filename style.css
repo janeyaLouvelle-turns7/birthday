@@ -1,83 +1,85 @@
-/* General Styles */
-body {
-    margin: 0;
-    font-family: 'Poppins', sans-serif;
-    background: linear-gradient(to bottom, #f9f7fd, #ffebf8);
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    height: 100vh;
-    color: #555;
+/* Countdown Styling */
+.countdown-container {
+  text-align: center;
+  margin-top: 100px;
+  padding: 10px; /* Reduced padding */
+  background: rgba(255, 182, 193, 0.7);
+  border-radius: 15px;
+  box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
 }
 
-/* Landing Page Container */
-.landing-container {
-    text-align: center;
-    max-width: 600px;
-    padding: 20px;
-    background: #ffffff;
-    border-radius: 20px;
-    box-shadow: 0px 4px 15px rgba(0, 0, 0, 0.1);
-    position: relative;
-}
-
-/* Title and Tagline */
 .title {
-    font-family: 'Cookie', cursive;
-    font-size: 2.5em;
-    color: #ff80c0;
-    margin: 20px 0;
-}
-
-.tagline {
-    font-size: 1.2em;
-    color: #666;
-    margin: 20px 0;
-}
-
-/* Cinnamonroll Image */
-.cinnamonroll-img {
-    width: 200px;
-    margin-top: -40px;
-}
-
-/* Enter Button */
-.enter-button {
-    background-color: #ffebf8;
-    color: #ff80c0;
-    border: 2px solid #ff80c0;
-    font-size: 1.2em;
-    padding: 15px 25px;
-    border-radius: 12px;
-    cursor: pointer;
-    margin-top: 20px;
-    transition: all 0.3s ease;
-}
-
-.enter-button:hover {
-    background-color: #ff80c0;
-    color: white;
-}
-
-/* Countdown Section */
-.countdown {
-    margin-top: 30px;
+  font-size: 20px; /* Reduced font size */
+  color: #FF69B4;
+  margin-bottom: 10px; /* Reduced margin */
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2);
 }
 
 .timer {
-    font-size: 1.5em;
-    font-weight: bold;
-    color: #ff80c0;
+  display: flex;
+  justify-content: center;
+  gap: 10px; /* Reduced gap between time boxes */
+  font-size: 16px; /* Reduced font size */
+  color: #fff;
 }
 
-/* Responsive Design */
-@media (max-width: 768px) {
-    .title {
-        font-size: 2em;
-    }
+.time-box {
+  background: #FFD1E8;
+  padding: 5px; /* Reduced padding */
+  border-radius: 10px;
+  width: 50px; /* Reduced width */
+  height: 80px; /* Reduced height */
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
 
-    .enter-button {
-        font-size: 1em;
-        padding: 12px 20px;
-    }
+.time-box div {
+  font-size: 16px; /* Reduced font size for numbers */
+}
+
+.time-box span {
+  font-size: 12px; /* Reduced font size for labels */
+  color: #FFB6C1;
+}
+
+/* Responsive adjustments for smaller screens */
+@media (max-width: 768px) {
+  .countdown-container {
+    margin-top: 80px;
+  }
+
+  .time-box {
+    width: 40px; /* Even smaller for tablets */
+    height: 60px;
+  }
+
+  .time-box div {
+    font-size: 14px; /* Adjust font size for numbers */
+  }
+
+  .time-box span {
+    font-size: 10px; /* Adjust font size for labels */
+  }
+}
+
+@media (max-width: 480px) {
+  .timer {
+    flex-direction: column; /* Stack vertically on small screens */
+    gap: 5px;
+  }
+
+  .time-box {
+    width: 35px; /* Even smaller for phones */
+    height: 50px;
+  }
+
+  .time-box div {
+    font-size: 12px; /* Adjust font size for numbers */
+  }
+
+  .time-box span {
+    font-size: 9px; /* Adjust font size for labels */
+  }
 }
